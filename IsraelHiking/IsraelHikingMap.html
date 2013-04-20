@@ -12,9 +12,10 @@
 	<body style="margin:0; padding:0; height:100%">
 		<div class="container" style="margin:auto;font-family:arial;">
 			<div id="Info" class="Infos">
+				<!-- This part will hold all the information and links of the english version -->
+				<!-- the links will be set later on in the script part, use "class" tag and not the full link path -->
 				<H1 id="Header">Israel Hiking Project</H1>
-				<p> This map was generated from <a class="OSM">Open Street Map (OSM)</a> data where it can be be viewed and edited. All you need to do is create an account and start mapping.</p>
-				<p> The map can also be <a class="Download">downloaded</a> and used offline on Android devices. You'll need to install <a class="OruxMaps">OruxMaps</a> and place the folder "Israel Hiking" with the two files on your SD card under <br>/sdcard/oruxmaps/mapfiles/</p>
+				<p> This map was generated from <a class="OSM">Open Street Map (OSM)</a> data where it can be be viewed and edited. All you need to do is create an account and start mapping. Note that the changes will not affect this map instaמtly.</p>
 				<H4> Below are some links related to this project </H4>
 				<ul>
 					<li>See <a class="Github">Github</a> for files and instructions on how to create the map by yourself</li>
@@ -28,12 +29,18 @@
 					Harel and Zeev<br>
 					<button onclick="ChangeLanguage()">עברית</button>
 				</p>
+				<p style="font-size:x-small"> 
+					The map can also be used offline: <br>
+					For Android devices it can be downloaded <a class="DownloadOrux">here</a>. You'll need to install <a class="OruxMaps">OruxMaps</a> and place the folder "Israel Hiking" with the two files on your SD card under <br>/sdcard/oruxmaps/mapfiles/<br>
+					For OziEplorer it can be downloaded <a class="DownloadOzi">here</a>.
+				</p>
 				</i>
 			</div>
 			<div id="Info-he" class="Infos">
+				<!-- This part will hold all the information and links of the hebrew version -->
+				<!-- the links will be set later on in the script part, use "class" tag and not the full link path -->
 				<H1 id="Header-he">פרוייקט מפת הטיולים הפתוחה של ישראל</H1>
-				<p> המפה הזו נוצרה בעזרת מידע מ- <a class="OSM">Open Street Map</a> שם ניתן לראות ולערוך אותו. כל שיש לעשות הוא לפתוח חשבון ולהתחיל למפות.</p>
-				<p> המפה ניתנת <a class="Download">להורדה</a> ולשימוש בצורה לא מקוונת על מכשירי אנדרואיד. יש להתקין את <a class="OruxMaps">OruxMaps</a> ולשים את התיקיה "Israel Hiking" עם שני הקבצים שלה על כרטיס הזיכרון בתיקיה <br>/sdcard/oruxmaps/mapfiles/</p>
+				<p> המפה הזו נוצרה בעזרת מידע מ- <a class="OSM">Open Street Map</a> שם ניתן לראות ולערוך אותו. כל שיש לעשות הוא לפתוח חשבון ולהתחיל למפות. שימו לב, המפה אינה מתעדכנת באופן מיידי</p>
 				<H4> להלן כמה קישורים הקשורים לפרוייקט </H4>
 				<ul>
 					<li><a class="Github">Github</a> קבצים והוראות איך ליצור את המפה בעצמך</li>
@@ -47,6 +54,11 @@
 					הראל וזאב<br>
 					<button onclick="ChangeLanguage()">English</button>
 				</p>
+				<p style="font-size:x-small">
+					המפה ניתנת לשימוש בצורה לא מקוונת:<br>
+					ניתן להוריד את המפה למכשירי אנדרואיד <a class="DownloadOrux">כאן</a>. יש להתקין את <a class="OruxMaps">OruxMaps</a> ולשים את התיקיה "Israel Hiking" עם שני הקבצים שלה על כרטיס הזיכרון בתיקיה <br>/sdcard/oruxmaps/mapfiles/<br>
+					ניתן להוריד את המפה לתוכנת OziExplorer <a class="DownloadOzi">כאן</a>.
+				</p>
 				</i>
 			</div>
 			<!-- Need to use 78% instead of 80% for the map's div to overcome an IE bug -->
@@ -54,8 +66,7 @@
 		</div>
 		<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
 		<script> 
-			// Links
-			//---------------------------------------------------
+			// the following function is missing in IE, therefore we add it manually:
 			if (typeof document.getElementsByClassName != 'function') {
 				document.getElementsByClassName = function() {
 					var elms = document.getElementsByTagName('*');
@@ -81,14 +92,11 @@
 				}
 			}
 			
+			// Links for both hebrew and english info
+			//---------------------------------------------------
 			var links = document.getElementsByClassName('OSM');
 			for (var i = 0; i < links.length; ++i) {
 				links[i].href = "http://www.openstreetmap.org/";
-				links[i].target = "_blank"
-			}
-			links = document.getElementsByClassName('Download');
-			for (var i = 0; i < links.length; ++i) {
-				links[i].href = "https://www.dropbox.com/sh/ujxnhr5zjc94g8h/9Z_DGVRiC2/Israel%20Hiking/oruxmaps%20mapfiles";
 				links[i].target = "_blank"
 			}
 			links = document.getElementsByClassName('OruxMaps');
@@ -114,6 +122,16 @@
 			links = document.getElementsByClassName('JoinDropbox');
 			for (var i = 0; i < links.length; ++i) {
 				links[i].href = "http://db.tt/iB36k7K";
+				links[i].target = "_blank"
+			}
+			links = document.getElementsByClassName('DownloadOrux');
+			for (var i = 0; i < links.length; ++i) {
+				links[i].href = "https://googledrive.com/host/0B-qrsEBJWXhQUGVBM3lHZTF2eXc/";
+				links[i].target = "_blank"
+			}
+			links = document.getElementsByClassName('DownloadOzi');
+			for (var i = 0; i < links.length; ++i) {
+				links[i].href = "https://www.dropbox.com/sh/h8ye52ahotghta1/tTeUkbTspw";
 				links[i].target = "_blank"
 			}
 		</script>
