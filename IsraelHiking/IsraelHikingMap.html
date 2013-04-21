@@ -15,7 +15,7 @@
 				<!-- This part will hold all the information and links of the english version -->
 				<!-- the links will be set later on in the script part, use "class" tag and not the full link path -->
 				<H1 id="Header">Israel Hiking Project</H1>
-				<p> This map was generated from <a class="OSM">Open Street Map (OSM)</a> data where it can be be viewed and edited. All you need to do is create an account and start mapping. Note that the changes will not affect this map instaמtly.</p>
+				<p> This map was generated from <a class="OSM">Open Street Map (OSM)</a> data where it can be be viewed and edited. All you need to do is create an account and start mapping. Note that the changes will not affect this map instantly.</p>
 				<H4> Below are some links related to this project </H4>
 				<ul>
 					<li>See <a class="Github">Github</a> for files and instructions on how to create the map by yourself</li>
@@ -29,18 +29,13 @@
 					Harel and Zeev<br>
 					<button onclick="ChangeLanguage()">עברית</button>
 				</p>
-				<p style="font-size:x-small"> 
-					The map can also be used offline: <br>
-					For Android devices it can be downloaded <a class="DownloadOrux">here</a>. You'll need to install <a class="OruxMaps">OruxMaps</a> and place the folder "Israel Hiking" with the two files on your SD card under <br>/sdcard/oruxmaps/mapfiles/<br>
-					For OziEplorer it can be downloaded <a class="DownloadOzi">here</a>.
-				</p>
 				</i>
 			</div>
 			<div id="Info-he" class="Infos">
 				<!-- This part will hold all the information and links of the hebrew version -->
 				<!-- the links will be set later on in the script part, use "class" tag and not the full link path -->
 				<H1 id="Header-he">פרוייקט מפת הטיולים הפתוחה של ישראל</H1>
-				<p> המפה הזו נוצרה בעזרת מידע מ- <a class="OSM">Open Street Map</a> שם ניתן לראות ולערוך אותו. כל שיש לעשות הוא לפתוח חשבון ולהתחיל למפות. שימו לב, המפה אינה מתעדכנת באופן מיידי</p>
+				<p> המפה הזו נוצרה בעזרת מידע מ- <a class="OSM">Open Street Map</a> שם ניתן לראות ולערוך אותו. כל שיש לעשות הוא לפתוח חשבון ולהתחיל למפות. שימו לב, המפה אינה מתעדכנת באופן מיידי.</p>
 				<H4> להלן כמה קישורים הקשורים לפרוייקט </H4>
 				<ul>
 					<li><a class="Github">Github</a> קבצים והוראות איך ליצור את המפה בעצמך</li>
@@ -53,11 +48,6 @@
 					תודה על תרומתכם!<br>
 					הראל וזאב<br>
 					<button onclick="ChangeLanguage()">English</button>
-				</p>
-				<p style="font-size:x-small">
-					המפה ניתנת לשימוש בצורה לא מקוונת:<br>
-					ניתן להוריד את המפה למכשירי אנדרואיד <a class="DownloadOrux">כאן</a>. יש להתקין את <a class="OruxMaps">OruxMaps</a> ולשים את התיקיה "Israel Hiking" עם שני הקבצים שלה על כרטיס הזיכרון בתיקיה <br>/sdcard/oruxmaps/mapfiles/<br>
-					ניתן להוריד את המפה לתוכנת OziExplorer <a class="DownloadOzi">כאן</a>.
 				</p>
 				</i>
 			</div>
@@ -138,7 +128,7 @@
 		<script>
 			// Code
 			// -----------------------------------
-			var map = L.map('map').setView([31.3618449995, 34.967935], 8);
+			var map = L.map('map').setView([31.773, 35.12], 13);
 			L.tileLayer('Tiles/{z}/{x}/{y}.png', {
 				attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a> <button onclick="onLocateClick()">Show my location</button>',
 				minZoom : 7,
