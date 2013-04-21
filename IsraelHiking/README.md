@@ -13,10 +13,12 @@ Note that this might be tricky on PCs that has windows 32bit and 4GB RAM (I mana
  * The second part of the following manual will explain how to convert the map for offline use on an android device.
 
 
-Maperitive (Windows only)
--------------------------
+Maperitive
+----------
 
-1. Download [Maperitive] (http://maperitive.net/) and extract it to a desired location.
+Maperitive runs on Windows, Liniux and MAC.
+
+1. Download [Maperitive](http://maperitive.net/) and extract it to a desired location. On Linux amd MacOS, Maperitive requires the use of (Mono)[http://www.mono-project.com/Main_Page].
 2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/maperitive-rulesets/tree/master/IsraelHiking) (this site if you read this file in github).
  * click on the Files tab.
  * click on the Zip with the cloud and arrow to download all the files.
@@ -29,22 +31,26 @@ This should generate 256x256 png tile files inside IsraelHiking\Tiles directory 
 
 MOBAC and Oruxmaps
 -------------------------
+
+[MOBAC - MOBile Atlas Creator](http://mobac.sourceforge.net/) is a JAVA program that runs on Windows, Linux, MAC, and more. It creates offline maps for many navigation applications.
+Oruxmaps is an offline navigation application for Android.
+
 1. In order to use an offline version of this map in an android device first install Oruxmaps from the [play store](https://play.google.com/store/apps/details?id=com.orux.oruxmaps). Oruxmaps is free of charge and does not have ads. It was not created by any of us, yet we recommend you buy the [donate version](https://play.google.com/store/apps/details?id=com.orux.oruxmapsDonate).
 2. Download [MOBAC - MOBile Atlas Creator](http://mobac.sourceforge.net/).
-2. Open IsraelHiking.xml file and change the \<sourceFolder\> tag to where the tiles were created (...\<Maperitive Install folder>\IsraelHiking\Tiles - full path).
-3. Place the IsraelHiking.xml file in \<MOBAC installtion folder\>\mapsources\
-4. Open MOBAC (it takes some time since it runs on java) and choose oruxmaps sqlite.
-5. On the left side under "Map Source" choose "Isreal Hiking".
-6. Move zoom on the top of the screen to 7 and by mouse drag select the whole country (the selected area should be red)
-7. Under "Zoom levels" check 7,8,..,15
-8. Click "Settings" Chosse "Map size" tab and change the Maximum size of rectangular maps to 1048575.
-9. Under "Atlas Content" set name to Israel Hiking and click on "Add Selection".
+3. Open IsraelHiking.xml file and change the \<sourceFolder\> tag to where the tiles were created (...\<Maperitive Install folder>\IsraelHiking\Tiles - full path).
+4. Place the IsraelHiking.xml file in \<MOBAC installtion folder\>\mapsources\
+5. Open MOBAC (it takes some time since it runs on java) and choose oruxmaps sqlite.
+6. On the left side under "Map Source" choose "Isreal Hiking".
+7. Move zoom on the top of the screen to 7 and by mouse drag select the whole country (the selected area should be red)
+8. Under "Zoom levels" check 7,8,..,15
+9. Click "Settings" Chosse "Map size" tab and change the Maximum size of rectangular maps to 1048575.
+10. Under "Atlas Content" set name to Israel Hiking and click on "Add Selection".
 	this should result in adding the name to the tree, opening the tree should show the selected zoom levels (7 - 15).
-10. Click "Create Atlas".
-11. A window should pop up with progress, make sure to check "ignore download errors", the operation should take about 20 Minutes.
-12. Once finished you should be able to find a folder under <MOBAC installation folder>\atlases\Israel Hiking_\<Creation Date\>\ called "Israel Hiking".
-13. Copy the "Israel Hiking" folder (not the one with the date) to your android device under /sdcard/oruxmaps/mapfiles
-14. Enjoy, open a OSM account and add trails to make this map better :)
+11. Click "Create Atlas".
+12. A window should pop up with progress, make sure to check "ignore download errors", the operation should take about 20 Minutes.
+13. Once finished you should be able to find a folder under <MOBAC installation folder>\atlases\Israel Hiking_\<Creation Date\>\ called "Israel Hiking".
+14. Copy the "Israel Hiking" folder (not the one with the date) to your android device under /sdcard/oruxmaps/mapfiles
+15. Enjoy, open a OSM account and add trails to make this map better :)
 
 
 -------------------------
