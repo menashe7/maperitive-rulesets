@@ -16,7 +16,7 @@ Note that this might be tricky on PCs that has windows 32bit and 4GB RAM (I mana
 Maperitive
 ----------
 
-Maperitive runs on Windows, Liniux and MAC.
+Maperitive runs on Windows, Linux and MAC.
 
 1. Download [Maperitive](http://maperitive.net/) and extract it to a desired location. On Linux amd MacOS, Maperitive requires the use of (Mono)[http://www.mono-project.com/Main_Page].
 2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/maperitive-rulesets/tree/master/IsraelHiking) (this site if you read this file in github).
