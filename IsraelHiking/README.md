@@ -26,7 +26,7 @@ Maperitive
 Maperitive runs on Windows, Linux and MAC.
 
 1. Download [Maperitive](http://maperitive.net/) and extract it to a desired location.
-    On Linux and MacOS, Maperitive requires the use of (Mono)[http://www.mono-project.com/Main%5fPage].
+    On Linux and MacOS, Maperitive requires the use of [Mono](http://www.mono-project.com/Main_Page).
 2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/maperitive-rulesets/tree/master/IsraelHiking) (this site if you read this file in github).
     * click on the Files tab.
     * click on the Zip with the cloud and arrow to download all the files.
@@ -57,8 +57,8 @@ Oruxmaps is an offline navigation application for Android.
     this should result in adding the name to the tree, opening the tree should show the selected zoom levels (7 - 15).
 11. Click "Create Atlas".
 12. A window should pop up with progress, make sure to check "ignore download errors", the operation should take about 20 Minutes.
-13. Once finished you should be able to find a folder under <MOBAC installation folder>\atlases\Israel Hiking\\\<Creation Date\>\ called "Israel Hiking".
-14. Copy the "Israel Hiking" folder (not the one with the date) to your android device under /sdcard/oruxmaps/mapfiles
+13. Once finished you should be able to find an "Israel Hiking" folder under <MOBAC installation folder>\atlases\Israel Hiking\_\<Creation Date\>.
+14. Copy the inner "Israel Hiking" folder (not Israel Hiking\_\<Creation Date\>) to your android device under oruxmaps/mapfiles
 15. Enjoy, open a OSM account and add trails to make this map better :-)
 
 
