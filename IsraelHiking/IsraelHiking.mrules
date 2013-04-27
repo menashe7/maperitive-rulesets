@@ -9,6 +9,8 @@
 
 // History:
 // --------
+// 2013-04-27: Added acheological, ruins, memorial, chrch, mosque, synagogue, power line towers, beach, picnic and parking names
+				Changed bicyle routes, Fixed natual reserve
 // 2013-04-05: Added picnic, campsite, parking, and coast to coast
 // 2013-03-15: Use ITM Grid Lines
 // 2013-03-02: Added Grid Lines
@@ -24,20 +26,11 @@
 //		- added special rendering for tunnels
 
 // TODO (stuff still missing, will be added soon)
-// archeological "Icons\SJJB\png\tourist_archaeological.p.32.png"
-// bike route as .....
-// footway stays the same
-// both as -.-.-.-.
-// add beach names a
-// add names for capsites and picnic area (maybe do it in zoom 16?) and beaches
 // color schemes for areas such as farmland, orchards, vineyards, scrubland, sand
-// memorials, ruins, archaeological sites, Graveyards... (again, maybe in zoom 16 only?)
+// Create legend tile
 
-// drinking water
 // tower
 // quarry
-// ruins
-// camping
 // barrier
 // ditch
 // bench
@@ -45,13 +38,15 @@
 // guidepost
 
 features
-//	church : amenity=place_of_worship AND (religion=christian OR religion=Christian)
+	church worship: amenity=place_of_worship AND (religion=christian OR religion=Christian)
+	mosque worship: amenity=place_of_worship AND (religion=muslim OR religion=Muslim)
+	synagogue worship: amenity=place_of_worship AND (religion=jewish OR religion=Jewish)
 //	food : amenity=restaurant OR amenity=fast_food OR tourism=guest_house
 //	alpine hut : tourism=alpine_hut
 //	shelter : amenity=shelter
 	place : node[place OR landuse=farmyard]
 	railway station : railway=station
-//	power tower : @isOneOf(power, tower, station, sub_station)
+	power tower : @isOneOf(power, tower, station, sub_station)
 
 	points
 		peak : natural=peak
@@ -62,9 +57,12 @@ features
 		parking : amenity=parking
 		camp site : tourism=camp_site
 		view : tourism=viewpoint
+		ruins : historic=ruins
+		archaeological : historic=archaeological_site
+		memorial : historic=memorial
 		grid label north : grid AND @isMulti(east, 10) AND @isMulti(north, 2)
 		grid label east : grid AND @isMulti(north, 10) AND @isMulti(east, 2)
-
+		
 	lines
 //		aerialway : aerialway
 		contour major : contour[@isMulti(elevation, 100)]
@@ -77,7 +75,7 @@ features
 		hiking regional coast to coast: relation[network = rwn @isMatch(name:en,"Coast to Coast")]
 		hiking national: relation[network = nwn]
 
-		cycle path : highway=cycleway 
+		cycle path : highway=cycleway OR (highway=path AND bicycle=designated)
 		foot path major : @isOneOf(highway, footway, path) AND (NOT trail_visibility OR @isOneOf(trail_visibility, excellent, good))
 		foot path minor : @isOneOf(highway, footway, path) AND (trail_visibility AND NOT @isOneOf(trail_visibility, excellent, good))
 		road major motorway : @isOneOf(highway, motorway, motorway_link) AND NOT @isOneOf(is_in, Jordan, Egypt, Syria, Lebanon)
@@ -87,7 +85,7 @@ features
 		road major tertiary : @isOneOf(highway, tertiary, tertiary_link) AND NOT @isOneOf(is_in, Jordan, Egypt, Syria, Lebanon)
 		road minor : @isOneOf(highway, residential, unclassified, living_street, service, road) AND NOT @isOneOf(is_in, Jordan, Egypt, Syria, Lebanon)
 		track major : highway=track AND @isOneOf(tracktype, grade1, grade2)
-		track minor : highway=track AND  (@isOneOf(tracktype, grade3, grade4, grade5) OR NOT tracktype) 
+		track minor : highway=track AND (@isOneOf(tracktype, grade3, grade4, grade5) OR NOT tracktype) 
 		railway rail : railway=rail
 		power line : @isOneOf(power, line, minor_line)
 		stream : @isOneOf(waterway, stream, river, wadi)
@@ -96,12 +94,14 @@ features
 
 	areas
 		building : building=yes
+		cemetery : landuse=cemetery OR amenity=grave_yard
 		residential : landuse=residential
 		forest : landuse=forest OR natural=wood OR leisure=park
 		water : natural=water OR waterway=riverbank OR landuse=reservoir OR landuse=basin
 		nature reserve : boundary=national_park OR boundary=protected_area OR leisure=nature_reserve
 		military : landuse=military OR military=danger_area
-
+		beach :  natural=beach
+		
 properties
 	// curved : true
 	text-halo-width : 30%
@@ -233,13 +233,38 @@ rules
 			icon-image : icons/SJJB/png/tourist_picnic.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
-
+		define
+			min-zoom : 16
+			font-size : 16:12
+			text-offset-vertical : 100%
+			text : name
+		draw : text
+		
+	target : parking
+		define
+			min-zoom : 15
+			icon-image : icons/SJJB/png/transport_parking.n.32.png
+			icon-width : 16
+		draw : icon
+		define
+			min-zoom : 16
+			font-size : 16:12
+			text-offset-vertical : 100%
+			text : name
+		draw : text
+		
 	target : camp site
 		define
 			min-zoom : 12
 			icon-image : icons/SJJB/png/accommodation_camping.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
+		define
+			min-zoom : 16
+			font-size : 16:12
+			text-offset-vertical : 100%
+			text : name
+		draw : text
 	
 	target : view
 		define
@@ -248,13 +273,27 @@ rules
 			icon-width : 14:16;15:24
 		draw : icon
 	
-	target : parking
+	target : ruins
 		define
-			min-zoom : 15
-			icon-image : icons/SJJB/png/transport_parking.n.32.png
-			icon-width : 16
+			min-zoom : 13
+			icon-image : icons/SJJB/png/tourist_ruin.p.32.png
+			icon-width : 14:16;15:24
 		draw : icon
 
+	target : archaeological
+		define
+			min-zoom : 13
+			icon-image : icons/SJJB/png/tourist_archaeological.p.32.png
+			icon-width : 14:16;15:24
+		draw : icon
+	
+	target : memorial
+		define
+			min-zoom : 13
+			icon-image : icons/SJJB/png/tourist_memorial.p.32.png
+			icon-width : 14:16;15:24
+		draw : icon
+	
 //	target: shelter
 //		define
 //			icon-image : icons/SJJB/png/accommodation_shelter2.n.32.png
@@ -262,11 +301,34 @@ rules
 //			min-zoom : 14
 //		draw : icon
 
+	target: *worship
+		if : church*
+			define
+				icon-image : icons/SJJB/png/place_of_worship_christian3.glow.32.png
+		elseif : mosque*
+			define
+				icon-image : icons/SJJB/png/place_of_worship_islamic3.glow.32.png
+		elseif : synagogue*
+			define
+				icon-image : icons/SJJB/png/place_of_worship_jewish3.glow.32.png
+		define
+			font-family : Arial
+			font-weight : bold
+			font-size : 14:10;20:20
+			min-zoom : 15
+			text-align-vertical : near
+			text-offset-vertical : 100%
+		draw : text
+		define 
+			icon-width : 14:16;20:30
+			min-zoom : 15
+		draw : icon
+		
 //	target: church
 //		define
 //			icon-image : icons/SJJB/png/place_of_worship_christian3.glow.32.png
 //			icon-width : 14:16;20:30
-//			min-zoom : 14
+//			min-zoom : 15
 //		draw : icon
 //		define
 //			font-family : Arial
@@ -610,11 +672,22 @@ rules
 
 
 	target : *path*
-		// foot paths and cycle paths
 		define
 			line-width : 12:1;13:1.5;14:2
 			line-style : dash
 			min-zoom : 13
+		if : cycle*
+			define
+				// cycle paths
+				line-style : dashlong
+				font-size : 13:8;16:14
+				text : name
+				text-direction : rtl
+			draw : text
+		elseif : *minor
+			define
+				// foot paths
+				line-style : dot
 		for : colour = red
 			define
 				line-color : red
@@ -808,18 +881,18 @@ rules
 			min-zoom : 12
 		draw : fill
 
-	target : nature_reserve
+	target : nature reserve
 		define
 			line-color : #8DC56C black 20%
-			line-opacity : 1
+			line-opacity : 0.9
 			line-width : 3
-			line-style : dash
+			line-style : dashdot
+		draw : line
+		define
 			font-size : 3:3;12:12
 			text-color : green
 			font-weight : normal
-			text : @up(name)
-		draw : line
-		define
+			text : name
 			min-zoom : 13.5
 		draw : text
 
@@ -876,7 +949,18 @@ rules
 			font-weight : bold
 			text-color : #78C1C1 black 10%
 		draw : text
-
+	
+	target : cemetery
+		define
+			line-style : none
+			line-width : 1
+			fill-color : #CCCCCC
+		draw : fill
+		define
+			min-zoom : 14
+			text : name
+		draw : text	
+	
 	target : forest
 		define
 			line-style : none
@@ -886,9 +970,9 @@ rules
 			fill-texture : Textures/ForestNoiseLight.jpg
 		draw : fill
 		define
-			min-zoom : 17
+			min-zoom : 16
 		draw : text
-
+		
 	target : residential
 		define
 			line-style : none
@@ -898,6 +982,20 @@ rules
 		define
 			min-zoom : 17
 		draw : text
+	
+	target : beach
+		define
+			line-style : none
+			line-width : 1
+			fill-color : #FFEC8B
+		draw : fill
+		define
+			min-zoom : 12
+			text-color : black
+			text-max-width : 15
+			text-halo-width : 30%
+			text-halo-opacity : 0.75
+			text : name
+		draw : text
 
-// vim: set autoindent noexpandtab:
 
