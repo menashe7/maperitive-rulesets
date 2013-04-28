@@ -9,7 +9,7 @@
 
 // History:
 // --------
-// 2013-04-27: Added acheological, ruins, memorial, chrch, mosque, synagogue, power line towers, beach, picnic and parking names
+// 2013-04-27: Added acheological, ruins, memorial, chrch, mosque, synagogue, power line towers, beach, picnic and parking names.
 //             Changed bicyle routes, Fixed natual reserve
 // 2013-04-05: Added picnic, campsite, parking, and coast to coast
 // 2013-03-15: Use ITM Grid Lines
@@ -30,6 +30,7 @@
 // Cliffs and quarries
 // Create legend tile
 // barrier/wall/gate/fence
+// steps
 
 // tower
 // ditch
@@ -62,7 +63,7 @@ features
 		memorial : historic=memorial
 		grid label north : grid AND @isMulti(east, 10) AND @isMulti(north, 2)
 		grid label east : grid AND @isMulti(north, 10) AND @isMulti(east, 2)
-		
+
 	lines
 //		aerialway : aerialway
 		contour major : contour[@isMulti(elevation, 100)]
@@ -76,14 +77,14 @@ features
 		hiking national: relation[network = nwn]
 
 		cycle path : highway=cycleway OR (highway=path AND bicycle=designated)
-		foot path major : @isOneOf(highway, footway, path) AND (NOT trail_visibility OR @isOneOf(trail_visibility, excellent, good))
-		foot path minor : @isOneOf(highway, footway, path) AND (trail_visibility AND NOT @isOneOf(trail_visibility, excellent, good))
-		road major motorway : @isOneOf(highway, motorway, motorway_link) AND NOT @isOneOf(is_in, Jordan, Egypt, Syria, Lebanon)
-		road major trunk : @isOneOf(highway, trunk, trunk_link) AND NOT @isOneOf(is_in, Jordan, Egypt, Syria, Lebanon)
-		road major primary : @isOneOf(highway, primary, primary_link) AND NOT @isOneOf(is_in, Jordan, Egypt, Syria, Lebanon)
-		road major secondary : @isOneOf(highway, secondary, secondary_link) AND NOT @isOneOf(is_in, Jordan, Egypt, Syria, Lebanon)
-		road major tertiary : @isOneOf(highway, tertiary, tertiary_link) AND NOT @isOneOf(is_in, Jordan, Egypt, Syria, Lebanon)
-		road minor : @isOneOf(highway, residential, unclassified, living_street, service, road) AND NOT @isOneOf(is_in, Jordan, Egypt, Syria, Lebanon)
+		path : highway=path AND NOT bicycle=designated
+		foot path : @isOneOf(highway, footway, steps)
+		road major motorway : @isOneOf(highway, motorway, motorway_link) AND NOT @isMatch(is_in, "Jordan|Egypt|Syria|Lebanon")
+		road major trunk : @isOneOf(highway, trunk, trunk_link) AND NOT @isMatch(is_in, "Jordan|Egypt|Syria|Lebanon")
+		road major primary : @isOneOf(highway, primary, primary_link) AND NOT @isMatch(is_in, "Jordan|Egypt|Syria|Lebanon")
+		road major secondary : @isOneOf(highway, secondary, secondary_link) AND NOT @isMatch(is_in, "Jordan|Egypt|Syria|Lebanon")
+		road major tertiary : @isOneOf(highway, tertiary, tertiary_link) AND NOT @isMatch(is_in, "Jordan|Egypt|Syria|Lebanon")
+		road minor : @isOneOf(highway, residential, unclassified, living_street, service, road) AND NOT @isMatch(is_in, "Jordan|Egypt|Syria|Lebanon")
 		track major : highway=track AND @isOneOf(tracktype, grade1, grade2)
 		track minor : highway=track AND (@isOneOf(tracktype, grade3, grade4, grade5) OR NOT tracktype) 
 		railway rail : railway=rail
@@ -101,7 +102,7 @@ features
 		nature reserve : boundary=national_park OR boundary=protected_area OR leisure=nature_reserve
 		military : landuse=military OR military=danger_area
 		beach :  natural=beach
-		
+
 properties
 	// curved : true
 	text-halo-width : 30%
@@ -239,7 +240,7 @@ rules
 			text-offset-vertical : 100%
 			text : name
 		draw : text
-		
+
 	target : parking
 		define
 			min-zoom : 15
@@ -252,7 +253,7 @@ rules
 			text-offset-vertical : 100%
 			text : name
 		draw : text
-		
+
 	target : camp site
 		define
 			min-zoom : 12
@@ -265,14 +266,14 @@ rules
 			text-offset-vertical : 100%
 			text : name
 		draw : text
-	
+
 	target : view
 		define
 			min-zoom : 12
 			icon-image : icons/SJJB/png/tourist_view_point.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
-	
+
 	target : ruins
 		define
 			min-zoom : 13
@@ -286,14 +287,14 @@ rules
 			icon-image : icons/SJJB/png/tourist_archaeological.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
-	
+
 	target : memorial
 		define
 			min-zoom : 13
 			icon-image : icons/SJJB/png/tourist_memorial.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
-	
+
 //	target: shelter
 //		define
 //			icon-image : icons/SJJB/png/accommodation_shelter2.n.32.png
@@ -323,7 +324,7 @@ rules
 			icon-width : 14:16;20:30
 			min-zoom : 15
 		draw : icon
-		
+
 //	target: church
 //		define
 //			icon-image : icons/SJJB/png/place_of_worship_christian3.glow.32.png
@@ -589,6 +590,7 @@ rules
 			text-align-horizontal : center
 			text-align-vertical : center
 			font-stretch : 0.9
+			text : name
 		for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
 			define
 				text-direction : rtl
@@ -671,7 +673,8 @@ rules
 		draw : line
 
 
-	target : *path*
+	target : *path
+		// foot paths, generic paths, and cycle paths
 		define
 			line-width : 12:1;13:1.5;14:2
 			line-style : dash
@@ -679,14 +682,11 @@ rules
 		if : cycle*
 			define
 				// cycle paths
-				line-style : dashlong
-				font-size : 13:8;16:14
-				text : name
-				text-direction : rtl
-			draw : text
-		elseif : *minor
+				line-style : dashdot
+		elseif : foot*
 			define
 				// foot paths
+				line-width : 12:1;13:1.5;16:3
 				line-style : dot
 		for : colour = red
 			define
@@ -706,6 +706,13 @@ rules
 				line-color : black white 30%
 				line-width : 13:1;14:1.5
 		draw : line
+		define
+			font-size : 13:8;16:14
+			text : name
+		for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+			define
+				text-direction : rtl
+		draw : text
 
 	target : hiking regional *
 		define
@@ -809,6 +816,7 @@ rules
 			text-color : #78C1C1 black 10%
 			map.rendering.lflp.min-buffer-space : 5
 			map.rendering.lflp.max-allowed-corner-angle : 90
+			text : name
 		for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
 			define
 				text-direction : rtl
@@ -886,7 +894,7 @@ rules
 			line-color : #8DC56C black 20%
 			line-opacity : 0.9
 			line-width : 3
-			line-style : dashdot
+			line-style : dashdotdot
 		draw : line
 		define
 			font-size : 3:3;12:12
@@ -949,7 +957,7 @@ rules
 			font-weight : bold
 			text-color : #78C1C1 black 10%
 		draw : text
-	
+
 	target : cemetery
 		define
 			line-style : none
@@ -960,7 +968,7 @@ rules
 			min-zoom : 14
 			text : name
 		draw : text	
-	
+
 	target : forest
 		define
 			line-style : none
@@ -972,7 +980,7 @@ rules
 		define
 			min-zoom : 16
 		draw : text
-		
+
 	target : residential
 		define
 			line-style : none
@@ -982,7 +990,7 @@ rules
 		define
 			min-zoom : 17
 		draw : text
-	
+
 	target : beach
 		define
 			line-style : none
@@ -998,4 +1006,4 @@ rules
 			text : name
 		draw : text
 
-
+// vim: set autoindent noexpandtab:
