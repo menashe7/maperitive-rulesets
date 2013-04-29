@@ -39,17 +39,18 @@
 // guidepost
 
 features
-	church worship: amenity=place_of_worship AND (religion=christian OR religion=Christian)
-	mosque worship: amenity=place_of_worship AND (religion=muslim OR religion=Muslim)
-	synagogue worship: amenity=place_of_worship AND (religion=jewish OR religion=Jewish)
-//	food : amenity=restaurant OR amenity=fast_food OR tourism=guest_house
-//	alpine hut : tourism=alpine_hut
-//	shelter : amenity=shelter
-	place : node[place OR landuse=farmyard]
-	railway station : railway=station
-	power tower : @isOneOf(power, tower, station, sub_station)
+	points, areas
+		church worship: amenity=place_of_worship AND (religion=christian OR religion=Christian)
+		mosque worship: amenity=place_of_worship AND (religion=muslim OR religion=Muslim)
+		synagogue worship: amenity=place_of_worship AND (religion=jewish OR religion=Jewish)
+//		food : amenity=restaurant OR amenity=fast_food OR tourism=guest_house
+//		alpine hut : tourism=alpine_hut
+//		shelter : amenity=shelter
+		railway station : railway=station
+		power tower : @isOneOf(power, tower, station, sub_station)
 
 	points
+		place : place OR landuse=farmyard
 		peak : natural=peak
 		water spring : natural=spring
 		water well : man_made=water_well
@@ -180,20 +181,27 @@ rules
 			text-halo-width : 30%
 			text-halo-opacity : 0.75
 		for : ele
+			// If ele is set
 			define
-				text : ele
 				text-align-horizontal : far
 				text-align-vertical : center
 				text-offset-vertical : 20%
 				text-offset-horizontal : -70%
+				text : ele
 			draw : text
 		for : name
+			// If name is defined
 			define
-				text : name
 				text-align-vertical : far
 				text-align-horizontal : center
 				text-offset-vertical : -70%
 				text-offset-horizontal : 0
+			for : @isMatch(name, "[א-ת]")
+				define
+					text : name
+			else
+				define
+					text : @any([[name:he]], [[name:en]], name)
 			draw : text
 
 	target : water *
@@ -218,6 +226,12 @@ rules
 			text-max-width : 10
 			text-offset-vertical : 150%
 			text-align-vertical : far
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 	target : water well
 		define
@@ -227,6 +241,13 @@ rules
 			min-zoom : 12
 			fill-color : blue
 		draw : shape
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
+		draw : text
 
 	target : picnic
 		define
@@ -238,7 +259,12 @@ rules
 			min-zoom : 16
 			font-size : 16:12
 			text-offset-vertical : 100%
-			text : name
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 
 	target : parking
@@ -251,7 +277,12 @@ rules
 			min-zoom : 16
 			font-size : 16:12
 			text-offset-vertical : 100%
-			text : name
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 
 	target : camp site
@@ -265,6 +296,12 @@ rules
 			font-size : 16:12
 			text-offset-vertical : 100%
 			text : name
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 
 	target : view
@@ -319,6 +356,12 @@ rules
 			min-zoom : 15
 			text-align-vertical : near
 			text-offset-vertical : 100%
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 		define 
 			icon-width : 14:16;20:30
@@ -419,6 +462,12 @@ rules
 			text-align-vertical : center
 			text-offset-vertical : 100%
 			font-size : 14:10;20:20
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
 		draw:text
 
 	target : road *
@@ -590,10 +639,24 @@ rules
 			text-align-horizontal : center
 			text-align-vertical : center
 			font-stretch : 0.9
-			text : name
-		for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
 			define
+				text : name
 				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
 		draw : text
 
 	target : road *
@@ -708,10 +771,24 @@ rules
 		draw : line
 		define
 			font-size : 13:8;16:14
-			text : name
-		for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
 			define
+				text : name
 				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
 		draw : text
 
 	target : hiking regional *
@@ -816,10 +893,24 @@ rules
 			text-color : #78C1C1 black 10%
 			map.rendering.lflp.min-buffer-space : 5
 			map.rendering.lflp.max-allowed-corner-angle : 90
-			text : name
-		for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
 			define
+				text : name
 				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
 		draw : text
 
 	target: contour*
@@ -900,8 +991,25 @@ rules
 			font-size : 3:3;12:12
 			text-color : green
 			font-weight : normal
-			text : name
 			min-zoom : 13.5
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
 		draw : text
 
 	target : military
@@ -940,7 +1048,24 @@ rules
 					line-color : black
 			define
 				line-width : 6:1;9:3;10:6
-//				text : @any([[name:he]], [[name:en]], name)
+//		// Hebrew preference for lines
+//		for : @isMatch(name, "[א-ת]")
+//			define
+//				text : name
+//				text-direction : rtl
+//		elsefor : name:he
+//			define
+//				text : [[name:he]]
+//				text-direction : rtl
+//		elsefor : name:en
+//			define
+//				text : [[name:en]]
+//		else
+//			define
+//				text : name
+//			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+//				define
+//					text-direction : rtl
 //			draw : text
 		draw : line		
 
@@ -956,6 +1081,24 @@ rules
 			font-style : italic
 			font-weight : bold
 			text-color : #78C1C1 black 10%
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
 		draw : text
 
 	target : cemetery
@@ -966,7 +1109,24 @@ rules
 		draw : fill
 		define
 			min-zoom : 14
-			text : name
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
 		draw : text	
 
 	target : forest
@@ -979,6 +1139,24 @@ rules
 		draw : fill
 		define
 			min-zoom : 16
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
 		draw : text
 
 	target : residential
@@ -989,6 +1167,24 @@ rules
 		draw : fill
 		define
 			min-zoom : 17
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
 		draw : text
 
 	target : beach
@@ -1004,6 +1200,24 @@ rules
 			text-halo-width : 30%
 			text-halo-opacity : 0.75
 			text : name
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
 		draw : text
 
 // vim: set autoindent noexpandtab:
