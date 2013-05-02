@@ -28,9 +28,13 @@
 // TODO (stuff still missing, will be added soon)
 // color schemes for areas such as farmland, orchards, vineyards, scrubland, sand, fields?
 // Cliffs and quarries
-// Create legend tile
+// Create legend tile - HM in progress
 // barrier/wall/gate/fence
-// steps
+// steps - using shapes? should be found in another rules file
+// riding dirrections in bike trails?
+// caves
+// add blue border to lakes
+// add pools and water towers
 
 // tower
 // ditch
