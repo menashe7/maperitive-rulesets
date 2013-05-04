@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' upload='true' generator='JOSM'>
+  <node id='-36' action='modify' visible='true' lat='32.8525' lon='35.5664'>
+    <tag k='amenity' v='parking' />
+    <tag k='legend' v='point' />
+    <tag k='name' v='חניה' />
+    <tag k='name:en' v='Parking' />
+    <tag k='name:he' v='חניה' />
+  </node>
+  <node id='-38' action='modify' visible='true' lat='32.8505' lon='35.5664'>
+    <tag k='legend' v='point' />
+    <tag k='name' v='חניון לילה' />
+    <tag k='name:en' v='Camp site' />
+    <tag k='name:he' v='חניון לילה' />
+    <tag k='tourism' v='camp_site' />
+  </node> 
+  <node id='-40' action='modify' visible='true' lat='32.8485' lon='35.5664'>
+    <tag k='legend' v='point' />
+    <tag k='name' v='תצפית' />
+    <tag k='name:en' v='Viewpoint' />
+    <tag k='name:he' v='תצפית' />
+    <tag k='tourism' v='viewpoint' />
+  </node>
+  <node id='-42' action='modify' visible='true' lat='32.8465' lon='35.5664'>
+    <tag k='legend' v='point' />
+    <tag k='name' v='פיקניק' />
+    <tag k='name:en' v='Picnic' />
+    <tag k='name:he' v='פיקניק' />
+    <tag k='tourism' v='picnic_site' />
+  </node>
+  <node id='-32' action='modify' visible='true' lat='32.8445' lon='35.5664'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='-14' action='modify' visible='true' lat='32.8425' lon='35.5664' />
+  <node id='-12' action='modify' visible='true' lat='32.8405' lon='35.5664' />
+  <node id='-28' action='modify' visible='true' lat='32.8385' lon='35.5664' />
+  
+  <node id='-44' action='modify' visible='true' lat='32.8525' lon='35.5724'>
+    <tag k='amenity' v='place_of_worship' />
+    <tag k='legend' v='point' />
+    <tag k='name' v='כנסיה' />
+    <tag k='name:en' v='Church' />
+    <tag k='name:he' v='כנסיה' />
+    <tag k='religion' v='christian' />
+  </node>
+  <node id='-46' action='modify' visible='true' lat='32.8505' lon='35.5724'>
+    <tag k='amenity' v='place_of_worship' />
+    <tag k='legend' v='point' />
+    <tag k='name' v='מסגד' />
+    <tag k='name:en' v='Mosque' />
+    <tag k='name:he' v='מסגד' />
+    <tag k='religion' v='muslim' />
+  </node>
+  <node id='-48' action='modify' visible='true' lat='32.8485' lon='35.5724'>
+    <tag k='amenity' v='place_of_worship' />
+    <tag k='legend' v='point' />
+    <tag k='name' v='בית כנסת' />
+    <tag k='name:en' v='Synagogue' />
+    <tag k='name:he' v='בית כנסת' />
+    <tag k='religion' v='jewish' />
+  </node>
+  <node id='-50' action='modify' visible='true' lat='32.8465' lon='35.5724'>
+    <tag k='legend' v='point' />
+    <tag k='name' v='תחנת רכבת' />
+    <tag k='name:en' v='Railway station' />
+    <tag k='name:he' v='תחנת רכבת' />
+    <tag k='railway' v='station' />
+  </node>  
+  <node id='-34' action='modify' visible='true' lat='32.8445' lon='35.5724'>
+    <tag k='power' v='station' />
+  </node>
+  <node id='-18' action='modify' visible='true' lat='32.8425' lon='35.5724' />
+  <node id='-16' action='modify' visible='true' lat='32.8405' lon='35.5724' />
+  <node id='-30' action='modify' visible='true' lat='32.8385' lon='35.5724' />
+  
+  <node id='-52' action='modify' visible='true' lat='32.8525' lon='35.5784'>
+    <tag k='ele' v='1000' />
+    <tag k='legend' v='point' />
+    <tag k='name' v='נקודת גובה' />
+    <tag k='name:en' v='Peak' />
+    <tag k='name:he' v='נקודת גובה' />
+    <tag k='natural' v='peak' />
+  </node>
+  <node id='-54' action='modify' visible='true' lat='32.8505' lon='35.5784'>
+    <tag k='legend' v='point' />
+    <tag k='name' v='נביעה' />
+    <tag k='name:en' v='Spring' />
+    <tag k='name:he' v='נביעה' />
+    <tag k='natural' v='spring' />
+  </node>
+  <node id='-56' action='modify' visible='true' lat='32.8485' lon='35.5784'>
+    <tag k='legend' v='point' />
+    <tag k='man_made' v='water_well' />
+    <tag k='name' v='באר' />
+    <tag k='name:en' v='Water well' />
+    <tag k='name:he' v='באר' />
+  </node>
+  <node id='-58' action='modify' visible='true' lat='32.8465' lon='35.5784'>
+    <tag k='legend' v='point' />
+    <tag k='man_made' v='cistern' />
+    <tag k='name' v='מאגר' />
+    <tag k='name:en' v='Cistern' />
+    <tag k='name:he' v='מאגר' />
+  </node>
+  <node id='-22' action='modify' visible='true' lat='32.8445' lon='35.5784' />
+  <node id='-20' action='modify' visible='true' lat='32.8425' lon='35.5784' />
+  <node id='-6'  action='modify' visible='true' lat='32.8405' lon='35.5784' />
+  <node id='-4'  action='modify' visible='true' lat='32.8385' lon='35.5784' /> 
+
+  <node id='-60' action='modify' visible='true' lat='32.8525' lon='35.5844'>
+    <tag k='historic' v='ruins' />
+    <tag k='legend' v='point' />
+    <tag k='name' v='חורבות' />
+    <tag k='name:en' v='Ruins' />
+    <tag k='name:he' v='חורבות' />
+  </node>
+  <node id='-62' action='modify' visible='true' lat='32.8505' lon='35.5844'>
+    <tag k='historic' v='archaeological_site' />
+    <tag k='legend' v='point' />
+    <tag k='name' v='אתר ארכיולוגי' />
+    <tag k='name:en' v='Archaeological site' />
+    <tag k='name:he' v='אתר ארכיולוגי' />
+  </node>
+  <node id='-64' action='modify' visible='true' lat='32.8485' lon='35.5844'>
+    <tag k='historic' v='memorial' />
+    <tag k='legend' v='point' />
+    <tag k='name' v='יד זיכרון' />
+    <tag k='name:en' v='Memorial' />
+    <tag k='name:he' v='יד זיכרון' />
+  </node>
+  <node id='-66' action='modify' visible='true' lat='32.8445' lon='35.5844'>
+    <tag k='natural' v='cave' />
+    <tag k='legend' v='point' />
+    <tag k='name' v='מערה' />
+    <tag k='name:en' v='Cave' />
+    <tag k='name:he' v='מערה' />
+  </node>
+  <node id='-26' action='modify' visible='true' lat='32.8445' lon='35.5844' />
+  <node id='-24' action='modify' visible='true' lat='32.8425' lon='35.5844' />
+  <node id='-10' action='modify' visible='true' lat='32.8405' lon='35.5844' />
+  <node id='-8'  action='modify' visible='true' lat='32.8385' lon='35.5844' />
+  
+  <way id='-82' action='modify' visible='true'>
+    <nd ref='-20' />
+    <nd ref='-24' />
+    <tag k='legend' v='line' />
+    <tag k='name' v='נחל איתן' />
+    <tag k='name:en' v='Stream' />
+    <tag k='name:he' v='נחל איתן' />
+    <tag k='waterway' v='river' />
+  </way>
+  <way id='-80' action='modify' visible='true'>
+    <nd ref='-22' />
+    <nd ref='-26' />
+    <tag k='legend' v='line' />
+    <tag k='name' v='נחל אכזב' />
+    <tag k='name:en' v='Wadi' />
+    <tag k='name:he' v='נחל אכזב' />
+    <tag k='waterway' v='wadi' />
+  </way>
+  <way id='-78' action='modify' visible='true'>
+    <nd ref='-12' />
+    <nd ref='-16' />
+    <tag k='highway' v='path' />
+    <tag k='legend' v='line' />
+    <tag k='name' v='שביל' />
+    <tag k='name:en' v='Path' />
+    <tag k='name:he' v='שביל' />
+  </way>
+  <way id='-76' action='modify' visible='true'>
+    <nd ref='-14' />
+    <nd ref='-18' />
+    <tag k='highway' v='footway' />
+    <tag k='legend' v='line' />
+    <tag k='name' v='שביל הולכי רגל' />
+    <tag k='name:en' v='Foot way' />
+    <tag k='name:he' v='שביל הולכי רגל' />
+  </way>
+  <way id='-74' action='modify' visible='true'>
+    <nd ref='-4' />
+    <nd ref='-8' />
+    <tag k='highway' v='track' />
+    <tag k='legend' v='line' />
+    <tag k='name' v='דרך עפר' />
+    <tag k='name:en' v='Track' />
+    <tag k='name:he' v='דרך עפר' />
+  </way>
+  <way id='-72' action='modify' visible='true'>
+    <nd ref='-6' />
+    <nd ref='-10' />
+    <tag k='legend' v='line' />
+    <tag k='name' v='מסילת רכבת' />
+    <tag k='name:en' v='Railway' />
+    <tag k='name:he' v='מסילת רכבת' />
+    <tag k='railway' v='rail' />
+  </way>
+  <way id='-70' action='modify' visible='true'>
+    <nd ref='-32' />
+    <nd ref='-34' />
+    <tag k='legend' v='line' />
+    <tag k='name' v='קו חשמל' />
+    <tag k='name:en' v='Power line' />
+    <tag k='name:he' v='קו חשמל' />
+    <tag k='power' v='line' />
+  </way>
+  <way id='-68' action='modify' visible='true'>
+    <nd ref='-28' />
+    <nd ref='-30' />
+    <tag k='highway' v='cycleway' />
+    <tag k='legend' v='line' />
+    <tag k='name' v='שביל אופניים' />
+    <tag k='name:en' v='Cycle way' />
+    <tag k='name:he' v='שביל אופניים' />
+  </way>
+</osm>
