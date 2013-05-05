@@ -28,10 +28,8 @@
 // TODO (stuff still missing, will be added soon)
 // color schemes for areas such as farmland, orchards, vineyards, scrubland, sand, fields?
 // Cliffs and quarries
-// Create legend tile - HM in progress
 // barrier/wall/gate/fence
 // riding dirrections in bike trails?
-// caves
 // add blue border to lakes
 // add pools and water towers
 
@@ -65,6 +63,7 @@ features
 		ruins : historic=ruins
 		archaeological : historic=archaeological_site
 		memorial : historic=memorial
+		cave : natural=cave_entrance
 		grid label north : grid AND @isMulti(east, 10) AND @isMulti(north, 2)
 		grid label east : grid AND @isMulti(north, 10) AND @isMulti(east, 2)
 
@@ -237,6 +236,7 @@ rules
 			define
 				text : @any([[name:he]], [[name:en]], name)
 		draw : text
+		
 	target : water well
 		define
 			shape : circle
@@ -245,13 +245,6 @@ rules
 			min-zoom : 12
 			fill-color : blue
 		draw : shape
-		for : @isMatch(name, "[א-ת]")
-			define
-				text : name
-		else
-			define
-				text : @any([[name:he]], [[name:en]], name)
-		draw : text
 
 	target : picnic
 		define
@@ -262,7 +255,7 @@ rules
 		define
 			min-zoom : 16
 			font-size : 16:12
-			text-offset-vertical : 100%
+			text-offset-vertical : 120%
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -280,7 +273,7 @@ rules
 		define
 			min-zoom : 16
 			font-size : 16:12
-			text-offset-vertical : 100%
+			text-offset-vertical : 120%
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -298,7 +291,7 @@ rules
 		define
 			min-zoom : 16
 			font-size : 16:12
-			text-offset-vertical : 100%
+			text-offset-vertical : 120%
 			text : name
 		for : @isMatch(name, "[א-ת]")
 			define
@@ -314,28 +307,95 @@ rules
 			icon-image : icons/SJJB/png/tourist_view_point.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
-
+		define
+			min-zoom : 16
+			font-size : 16:12
+			text-offset-vertical : 120%
+			text : name
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
+		draw : text
+		
 	target : ruins
 		define
 			min-zoom : 13
 			icon-image : icons/SJJB/png/tourist_ruin.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
-
+		define
+			min-zoom : 16
+			font-size : 16:12
+			text-offset-vertical : 120%
+			text : name
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
+		draw : text
+		
 	target : archaeological
 		define
 			min-zoom : 13
 			icon-image : icons/SJJB/png/tourist_archaeological.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
-
+		define
+			min-zoom : 16
+			font-size : 16:12
+			text-offset-vertical : 120%
+			text : name
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
+		draw : text
+		
 	target : memorial
 		define
 			min-zoom : 13
 			icon-image : icons/SJJB/png/tourist_memorial.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
-
+		define
+			min-zoom : 16
+			font-size : 16:12
+			text-offset-vertical : 120%
+			text : name
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
+		draw : text
+		
+	target : cave
+		define
+			min-zoom : 13
+			icon-image : israelhiking/cave.png
+			icon-width : 14:16;15:24
+		draw : icon
+		define
+			min-zoom : 16
+			font-size : 16:12
+			text-offset-vertical : 120%
+			text : name
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+		else
+			define
+				text : @any([[name:he]], [[name:en]], name)
+		draw : text
+		
 //	target: shelter
 //		define
 //			icon-image : icons/SJJB/png/accommodation_shelter2.n.32.png
@@ -433,7 +493,7 @@ rules
 	target : power line
 		define
 			curved : false
-			min-zoom : 15.5
+			min-zoom : 15
 			line-width : 1
 		draw : line
 
@@ -469,10 +529,21 @@ rules
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
 		else
 			define
-				text : @any([[name:he]], [[name:en]], name)
-		draw:text
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
+		draw : text
 
 	target : road *
 		if : * motorway

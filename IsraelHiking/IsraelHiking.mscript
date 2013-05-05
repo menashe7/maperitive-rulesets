@@ -89,6 +89,11 @@ load-source Israel.contours
 // generate-contours interval=10
 // ===========================================
 
+// ===============================================
+// === Load legend source file created by hand ===   
+// ===============================================
+load-source Legend.osm
+
 // =======================================================================
 // == Load the relief file created using "Israel Hiking Setup.mscript" ===
 // =======================================================================
@@ -99,11 +104,6 @@ load-image file=relief_Hiking_Igor.png background=false
 // ========================================
 // generate-relief-igor intensity=6 color=#808080 
 // ========================================
-
-// Load the relief file created using "Israel Hiking Setup.mscript"
-//load-image file=relief_Hiking_Slopeshading.png background=true
-//-// Alternatively, the relief can be created using:
-// generate-relief-slopeshading
 
 // =======================================
 // === Generate new tiles where needed ===

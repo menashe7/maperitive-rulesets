@@ -28,9 +28,7 @@
     <tag k='name:he' v='פיקניק' />
     <tag k='tourism' v='picnic_site' />
   </node>
-  <node id='-32' action='modify' visible='true' lat='32.8445' lon='35.5664'>
-    <tag k='power' v='tower' />
-  </node>
+  <node id='-32' action='modify' visible='true' lat='32.8445' lon='35.5664' />
   <node id='-14' action='modify' visible='true' lat='32.8425' lon='35.5664' />
   <node id='-12' action='modify' visible='true' lat='32.8405' lon='35.5664' />
   <node id='-28' action='modify' visible='true' lat='32.8385' lon='35.5664' />
@@ -66,9 +64,7 @@
     <tag k='name:he' v='תחנת רכבת' />
     <tag k='railway' v='station' />
   </node>  
-  <node id='-34' action='modify' visible='true' lat='32.8445' lon='35.5724'>
-    <tag k='power' v='station' />
-  </node>
+  <node id='-34' action='modify' visible='true' lat='32.8445' lon='35.5724' />
   <node id='-18' action='modify' visible='true' lat='32.8425' lon='35.5724' />
   <node id='-16' action='modify' visible='true' lat='32.8405' lon='35.5724' />
   <node id='-30' action='modify' visible='true' lat='32.8385' lon='35.5724' />
@@ -105,7 +101,9 @@
   <node id='-22' action='modify' visible='true' lat='32.8445' lon='35.5784' />
   <node id='-20' action='modify' visible='true' lat='32.8425' lon='35.5784' />
   <node id='-6'  action='modify' visible='true' lat='32.8405' lon='35.5784' />
-  <node id='-4'  action='modify' visible='true' lat='32.8385' lon='35.5784' /> 
+  <node id='-4'  action='modify' visible='true' lat='32.8385' lon='35.5784' >
+	<tag k='power' v='tower' />
+  </node>
 
   <node id='-60' action='modify' visible='true' lat='32.8525' lon='35.5844'>
     <tag k='historic' v='ruins' />
@@ -128,8 +126,8 @@
     <tag k='name:en' v='Memorial' />
     <tag k='name:he' v='יד זיכרון' />
   </node>
-  <node id='-66' action='modify' visible='true' lat='32.8445' lon='35.5844'>
-    <tag k='natural' v='cave' />
+  <node id='-66' action='modify' visible='true' lat='32.8465' lon='35.5844'>
+    <tag k='natural' v='cave_entrance' />
     <tag k='legend' v='point' />
     <tag k='name' v='מערה' />
     <tag k='name:en' v='Cave' />
@@ -138,7 +136,9 @@
   <node id='-26' action='modify' visible='true' lat='32.8445' lon='35.5844' />
   <node id='-24' action='modify' visible='true' lat='32.8425' lon='35.5844' />
   <node id='-10' action='modify' visible='true' lat='32.8405' lon='35.5844' />
-  <node id='-8'  action='modify' visible='true' lat='32.8385' lon='35.5844' />
+  <node id='-8'  action='modify' visible='true' lat='32.8385' lon='35.5844' >
+	<tag k='power' v='station' />
+  </node>
   
   <way id='-82' action='modify' visible='true'>
     <nd ref='-20' />
@@ -177,8 +177,8 @@
     <tag k='name:he' v='שביל הולכי רגל' />
   </way>
   <way id='-74' action='modify' visible='true'>
-    <nd ref='-4' />
-    <nd ref='-8' />
+    <nd ref='-32' />
+    <nd ref='-34' />
     <tag k='highway' v='track' />
     <tag k='legend' v='line' />
     <tag k='name' v='דרך עפר' />
@@ -195,8 +195,8 @@
     <tag k='railway' v='rail' />
   </way>
   <way id='-70' action='modify' visible='true'>
-    <nd ref='-32' />
-    <nd ref='-34' />
+    <nd ref='-4' />
+    <nd ref='-8' />
     <tag k='legend' v='line' />
     <tag k='name' v='קו חשמל' />
     <tag k='name:en' v='Power line' />
