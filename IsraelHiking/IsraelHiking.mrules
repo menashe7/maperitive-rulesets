@@ -224,7 +224,6 @@ rules
 		draw : shape
 		define
 			text-color : blue
-			min-zoom : 12
 			font-size : 12:12;14:14;15:15
 			text-max-width : 10
 			text-offset-vertical : 150%
@@ -236,8 +235,9 @@ rules
 			define
 				text : @any([[name:he]], [[name:en]], name)
 		draw : text
-		
+
 	target : water well
+		// create the inner dot for water well
 		define
 			shape : circle
 			shape-size : 1.5
@@ -253,8 +253,8 @@ rules
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 16
-			font-size : 16:12
+			min-zoom : 12
+			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 		for : @isMatch(name, "[א-ת]")
 			define
@@ -271,8 +271,8 @@ rules
 			icon-width : 16
 		draw : icon
 		define
-			min-zoom : 16
-			font-size : 16:12
+			min-zoom : 15
+			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 		for : @isMatch(name, "[א-ת]")
 			define
@@ -289,8 +289,8 @@ rules
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 16
-			font-size : 16:12
+			min-zoom : 12
+			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
 		for : @isMatch(name, "[א-ת]")
@@ -308,8 +308,8 @@ rules
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 16
-			font-size : 16:12
+			min-zoom : 12
+			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
 		for : @isMatch(name, "[א-ת]")
@@ -327,8 +327,8 @@ rules
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 16
-			font-size : 16:12
+			min-zoom : 13
+			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
 		for : @isMatch(name, "[א-ת]")
@@ -346,8 +346,8 @@ rules
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 16
-			font-size : 16:12
+			min-zoom : 13
+			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
 		for : @isMatch(name, "[א-ת]")
@@ -365,8 +365,8 @@ rules
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 16
-			font-size : 16:12
+			min-zoom : 13
+			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
 		for : @isMatch(name, "[א-ת]")
@@ -384,8 +384,8 @@ rules
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 16
-			font-size : 16:12
+			min-zoom : 13
+			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
 		for : @isMatch(name, "[א-ת]")
@@ -1252,7 +1252,7 @@ rules
 			fill-texture : Textures/ForestNoiseLight.jpg
 		draw : fill
 		define
-			min-zoom : 16
+			min-zoom : 13
 		// Hebrew preference for lines
 		for : @isMatch(name, "[א-ת]")
 			define
