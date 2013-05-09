@@ -105,25 +105,3 @@ load-image file=relief_Hiking_Igor.png background=false
 // generate-relief-igor intensity=6 color=#808080 
 // ========================================
 
-// =======================================
-// === Generate new tiles where needed ===
-// =======================================
-generate-tiles minzoom=7 maxzoom=15 use-fprint=true
-
-// ========================================
-// === Create a Zip file with new tiles ===
-// ========================================
-zip zip-file=output\TileUpdate.zip
-// ========================================
-
-// =======================================
-// === Generate new tiles where needed ===
-// =======================================
-generate-tiles minzoom=16 maxzoom=16 use-fprint=true
-
-// =================================================
-// === Create a Zip file with new level 16 tiles ===
-// =================================================
-zip zip-file=output\TileUpdate16.zip
-// =================================================
-
