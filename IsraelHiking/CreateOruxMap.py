@@ -14,6 +14,8 @@ App.log('App.start_program(App.script_dir + "\..\..\Mobile Atlas Creator\CreateI
 App.start_program(App.script_dir + "\..\..\Mobile Atlas Creator\CreateIsraelHiking.bat", [])
 App.log("=== Create tiles for zoom 16 ===")
 App.run_command("generate-tiles minzoom=16 maxzoom=16 use-fprint=true")
+App.log("=== Create a Zip file with new tiles ===")
+App.run_command("zip zip-file=output\TileUpdate16.zip")
 App.log("=== Start uploading of tiles zoom 16 ===")
 App.log('App.start_program("' + App.script_dir + '\UploadTiles.bat", "TileUpdate16.zip"])')
 App.start_program(App.script_dir + "\UploadTiles.bat", ["TileUpdate16.zip"])
