@@ -9,6 +9,7 @@
 
 // History:
 // --------
+// 2013-11-05: Added Legend
 // 2013-04-27: Added acheological, ruins, memorial, chrch, mosque, synagogue, power line towers, beach, picnic and parking names.
 //             Changed bicyle routes, Fixed natual reserve
 // 2013-04-05: Added picnic, campsite, parking, and coast to coast
@@ -49,7 +50,8 @@ features
 //		shelter : amenity=shelter
 		railway station : railway=station
 		power tower : @isOneOf(power, tower, station, sub_station)
-
+		legend : legend=legend
+		
 	points
 		place : place OR landuse=farmyard
 		peak : natural=peak
@@ -148,7 +150,7 @@ rules
 			define
 				text : @any([[name:he]], [[name:en]], name)
 		draw : text
-
+		
 //	target: alpine hut
 //		define
 //			icon-image : icons/SJJB/png/accommodation_alpinehut.glow.32.png
@@ -1333,5 +1335,21 @@ rules
 				define
 					text-direction : rtl
 		draw : text
-
+	
+	target : legend
+		define
+			line-style : none
+			line-width : 1
+			fill-color : #F0FFFF
+		draw : fill
+		define
+			min-zoom : 8
+			font-size : 8:12;10:16;14:20
+			text-color : black
+			text-halo-width : 30%
+			text-halo-opacity : 0.75
+			text-offset-vertical : -50%
+			text : name
+		draw : text
+		
 // vim: set autoindent noexpandtab:
