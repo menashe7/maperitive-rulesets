@@ -459,7 +459,7 @@ rules
 
 	target : power tower
 		define
-			min-zoom : 15.5
+			min-zoom : 15
 			shape : square
 			shape-size : 16:7;20:12
 			fill-color : black
@@ -1104,10 +1104,10 @@ rules
 			line-style : dashdotdot
 		draw : line
 		define
-			font-size : 3:3;12:12
+			min-zoom : 13
+			font-size : 12
 			text-color : green
 			font-weight : normal
-			min-zoom : 13.5
 		// Hebrew preference for lines
 		for : @isMatch(name, "[א-ת]")
 			define
@@ -1136,7 +1136,31 @@ rules
 			fill-hatch-opacity : 0
 			line-style : none
 		draw : fill
-
+		define
+			min-zoom : 13
+			font-size : 12
+			text-color : red
+			font-weight : normal
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
+		draw : text
+		
 	target : boundary*
 		// Avoid maritime borders
 		for : maritime=yes
@@ -1224,7 +1248,8 @@ rules
 			fill-color : #CCCCCC
 		draw : fill
 		define
-			min-zoom : 14
+			min-zoom : 13
+			font-size : 12
 		// Hebrew preference for lines
 		for : @isMatch(name, "[א-ת]")
 			define
@@ -1255,6 +1280,7 @@ rules
 		draw : fill
 		define
 			min-zoom : 13
+			font-size : 12
 		// Hebrew preference for lines
 		for : @isMatch(name, "[א-ת]")
 			define
@@ -1310,11 +1336,9 @@ rules
 			fill-color : #FFEC8B
 		draw : fill
 		define
-			min-zoom : 12
+			min-zoom : 13
+			font-size : 12
 			text-color : black
-			text-max-width : 15
-			text-halo-width : 30%
-			text-halo-opacity : 0.75
 			text : name
 		// Hebrew preference for lines
 		for : @isMatch(name, "[א-ת]")
