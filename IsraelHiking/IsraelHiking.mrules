@@ -9,7 +9,8 @@
 
 // History:
 // --------
-// 2013-11-05: Added Legend
+// 2013-11-05: Added Legend, fields, orchads, vineyard, quarry areas, guidepost
+//				quarry pattern was taken from http://subtlepatterns.com/.
 // 2013-04-27: Added acheological, ruins, memorial, chrch, mosque, synagogue, power line towers, beach, picnic and parking names.
 //             Changed bicyle routes, Fixed natual reserve
 // 2013-04-05: Added picnic, campsite, parking, and coast to coast
@@ -27,8 +28,8 @@
 //		- added special rendering for tunnels
 
 // TODO (stuff still missing, will be added soon)
-// color schemes for areas such as farmland, orchards, vineyards, scrubland, sand, fields?
-// Cliffs and quarries
+// color schemes for areas such as scrubland, sand?
+// Cliffs
 // barrier/wall/gate/fence
 // riding dirrections in bike trails?
 // add blue border to lakes
@@ -36,9 +37,6 @@
 
 // tower
 // ditch
-// bench
-// information table
-// guidepost
 
 features
 	points, areas
@@ -66,6 +64,7 @@ features
 		archaeological : historic=archaeological_site
 		memorial : historic=memorial
 		cave : natural=cave_entrance
+		guidepost : information=guidepost
 		grid label north : grid AND @isMulti(east, 10) AND @isMulti(north, 2)
 		grid label east : grid AND @isMulti(north, 10) AND @isMulti(east, 2)
 
@@ -108,6 +107,10 @@ features
 		nature reserve : boundary=national_park OR boundary=protected_area OR leisure=nature_reserve
 		military : landuse=military OR military=danger_area
 		beach :  natural=beach
+		quarry : landuse=quarry
+		field : @isOneOf(landuse, field,  meadow)
+		plantation : @isOneOf(landuse, orchard, vineyard)
+		green area : @isOneOf(landuse, farmland, farmyard, grass, greenfield, village_green)
 
 properties
 	// curved : true
@@ -434,21 +437,6 @@ rules
 			min-zoom : 15
 		draw : icon
 
-//	target: church
-//		define
-//			icon-image : icons/SJJB/png/place_of_worship_christian3.glow.32.png
-//			icon-width : 14:16;20:30
-//			min-zoom : 15
-//		draw : icon
-//		define
-//			font-family : Arial
-//			font-weight : bold
-//			font-size : 14:10;20:20
-//			min-zoom : 15
-//			text-align-vertical : near
-//			text-offset-vertical : 100%
-//		draw : text
-
 	target : railway station
 		define
 			min-zoom : 11
@@ -466,7 +454,14 @@ rules
 			line-style : none
 		draw : shape
 
-// lines
+	target : guidepost
+		define
+			min-zoom : 13
+			icon-image : icons/SJJB/png/poi_place_town.p.32
+			icon-width : 14:16;15:24
+		draw : icon	
+		
+////////////////////////// lines ////////////////////////////////
 
 //	target : aerialway
 //		define
@@ -1087,7 +1082,7 @@ rules
 			line-opacity : 80%
 		draw : line
 
-// areas
+/////////////////////////////// areas ////////////////////////////
 
 	target : building
 		define
@@ -1360,6 +1355,61 @@ rules
 					text-direction : rtl
 		draw : text
 	
+	target : quarry
+		define
+			line-style : none
+			line-width : 0
+			min-zoom : 9
+			fill-texture : israelhiking/quarry.png
+		draw : fill
+		define
+			min-zoom : 13
+			font-size : 12
+			text-color : black
+			text : name
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
+		draw : text
+
+	target : field
+		define
+			line-style : none
+			line-width : 1
+			fill-color : #E6DDD0
+		draw : fill
+	
+	target : green area
+		define
+			line-style : none
+			line-width : 1
+			fill-color : #98FB98
+		draw : fill
+	
+	target : plantation
+// based on : http://wiki.openstreetmap.org/wiki/Tag:landuse%3Dorchard#Rendering
+		define
+			line-style : none
+			line-width : 0
+			min-zoom : 9
+			fill-texture : israelhiking/plantation.png
+		draw : fill
+
 	target : legend
 		define
 			line-style : none
