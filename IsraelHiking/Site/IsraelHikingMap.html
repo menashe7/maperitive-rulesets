@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Israel Hiking Map - OSM</title>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
+		<link rel="stylesheet" href="IsraelHikingMap.css" />
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
+		<![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="icon" href="favicon.png" />
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="IsraelHikingMap.js"></script>
+	</head>
+	<!--
+Todo List:
+	Add search box using nominatim
+	Expand and collapse info
+	Legend (also expand and collapse, might be with info in the same tab?) 
+	Add edit link to OSM (using currect coordinates)
+	permalink for mail attachments (nned to fuuly understand what that is...)
+	-->
+	<body style="margin:0; padding:0; height:100%">
+		<div class="container" style="margin:auto;font-family:arial;">
+			<input type="hidden" id="lang" currentlanguage="he" />
+			<div class="noprint"><img id="hebrew" alt="" src="hebrew.gif"/></div>
+			<div class="noprint"><img id="english" alt="" src="english.gif"/></div>
+			<div class="noprint" id="descriptionToggle" onclick="toggleInfo()">מקרא</div>
+			<div class="hide" id="description">
+				<br>
+				<img title="Legend" src="legend.png" id="legend" alt="" border="">
+			</div>
+			<div class="noprint" id="InfoWrapper" onclick="toggleAbout()">אודות</div>
+			<div class="hide" id="about">
+				<div id="language" class="he">
+					<h1 id="Header-he">פרוייקט מפת הטיולים הפתוחה של ישראל</h1>
+					<p> המפה הזו נוצרה בעזרת מידע מ- <a class="OSM">Open Street Map</a> שם ניתן לראות ולערוך אותו. כל שיש לעשות הוא לפתוח חשבון ולהתחיל למפות. שימו לב, המפה אינה מתעדכנת באופן מיידי.</p>
+					<h4> להלן כמה קישורים הקשורים לפרוייקט </h4>
+					<ul>
+						<li><a class="Github">Github</a> הוראות איך ליצור את המפה בעצמך וקישורים להורדת מפות</li>
+						<li><a class="OSMWiki">Israel OSM Wiki Project</a> חוקים נפוצים של קהילת הממפים הישראלית של OSM</li>
+						<li><a class="OSMForum">Israel OSM Forum</a> היכן שניתן למצוא תשובות ולשאול שאלות לגבי המיפוי</li>
+					</ul>
+					<i><p align="left">תודה על תרומתכם!<br>הראל וזאב<br></p></i>
+				</div>
+			</div>
+			<div class="noprint" id="myLocation" onclick="onLocateClick()">מיקום נוכחי</div>
+			<div class="noprint" id="search" onclick="toggleSearch()">חיפוש</div>
+			<div class="hide" id="searchWindow">
+				<input type="text" name="addr" value="" id="addr" size="10" />
+				<button type="button" onclick="addr_search();">Search</button>
+				<div id="results">
+				</div>
+			</div>
+			<div class="noprint" id="edit" onclick="">עריכה</div>
+		</div>
+			<!-- Need to use 78% instead of 80% for the map's div to overcome an IE bug -->
+			<div id="map" style="float:left;width:100%; height:100%;"></div>
+		</div>
+		<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+		<script type="text/javascript">
+		var map = L.map('map').setView([31.773, 35.12], 13);
+		L.tileLayer('Tiles/{z}/{x}/{y}.png', {
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>',
+		minZoom : 7,
+		maxZoom: 15
+		}).addTo(map);	
+		</script>
+	</body>
+</html>

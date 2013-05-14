@@ -1,0 +1,215 @@
+.noprint{
+margin: 0;
+line-height: 0;
+}
+
+.hide {
+display: none;
+}
+
+#descriptionToggle {
+position: absolute;
+font-size: 0.8em;
+z-index: 10000;
+left: 100px;
+height: 1px;
+border-left: 1px solid #000040;
+border-bottom: 1px solid #000040;
+border-right: 1px solid #000040;
+padding: 9px 15px;
+margin-right: 200px;
+background-color: #EEE;
+cursor: pointer;
+opacity: 0.7;
+}
+
+#descriptionToggle:hover {
+background-color: #FFF;
+opacity: 1;
+}
+
+#about{
+position: absolute;
+z-index: 10000;
+left: 160px;
+top: 18px;
+border: 1px solid #000040;
+padding: 9px 15px;
+margin-right: 200px;
+background-color: #FFF;
+font-size: 12px;
+}
+
+#about.eng{
+left:173px;
+}
+
+#myLocation{
+position: absolute;
+font-size: 0.8em;
+z-index: 10000;
+left:220px;
+height: 1px;
+border-bottom: 1px solid #000040;
+border-right: 1px solid #000040;
+padding: 9px 15px;
+margin-right: 200px;
+background-color: #EEE;
+cursor: pointer;
+opacity: 0.7;
+}
+
+#myLocation.eng{
+left:239px;
+}
+
+#description {
+position: absolute;
+z-index: 10000;
+left: 100px;
+top: 18px;
+border: 1px solid #000040;
+padding: 10px 10px;
+margin-right: 200px;
+background-color: #FFF;
+font-size: 12px;
+}
+
+#InfoWrapper{
+position: absolute;
+font-size: 0.8em;
+z-index: 10000;
+left:160px;
+height: 1px;
+border-left: 1px solid #000040;
+border-bottom: 1px solid #000040;
+border-right: 1px solid #000040;
+padding: 9px 15px;
+margin-right: 200px;
+background-color: #EEE;
+cursor: pointer;
+opacity: 0.7;
+}
+
+#InfoWrapper.eng{
+left:173px;
+}
+
+#search{
+position: absolute;
+font-size: 0.8em;
+z-index: 10000;
+left:309px;
+height: 1px;
+border-bottom: 1px solid #000040;
+border-right: 1px solid #000040;
+padding: 9px 15px;
+margin-right: 200px;
+background-color: #EEE;
+cursor: pointer;
+opacity: 0.7;
+}
+
+#search.eng{
+left:341px;
+}
+
+#searchWindow {
+position: absolute;
+z-index: 10000;
+left: 309px;
+top: 18px;
+border: 1px solid #000040;
+padding: 10px 10px;
+margin-right: 200px;
+background-color: #FFF;
+font-size: 12px;
+}
+
+#searchWindow.eng{
+left:340;
+}
+
+#edit{
+position: absolute;
+font-size: 0.8em;
+z-index: 10000;
+left:370px;
+height: 1px;
+border-bottom: 1px solid #000040;
+border-right: 1px solid #000040;
+padding: 9px 15px;
+margin-right: 200px;
+background-color: #EEE;
+cursor: pointer;
+opacity: 0.7;
+}
+
+#edit.eng{
+left:413px;
+}
+
+#hebrew {
+position: absolute;
+font-size: 0.8em;
+z-index: 10000;
+left: 77px;
+height: 19px;
+border-bottom: 1px solid #000040;
+border-left: 1px solid #000040;
+margin-right: 200px;
+cursor: pointer;
+opacity: 0.7;
+}
+
+#english {
+position: absolute;
+font-size: 0.8em;
+z-index: 10000;
+left: 48px;
+height: 19px;
+border-bottom: 1px solid #000040;
+border-left: 1px solid #000040;
+margin-right: 200px;
+cursor: pointer;
+opacity: 0.7;
+width: 28px;
+}
+
+.he{
+direction: rtl;
+}
+
+.en{
+direction: ltr;
+}
+
+#InfoWrapper:hover{
+background-color: #FFF;
+opacity: 1;
+}
+
+#myLocation:hover{
+background-color: #FFF;
+opacity: 1;
+}
+
+#edit:hover{
+background-color: #FFF;
+opacity: 1;
+}
+
+#search:hover{
+background-color: #FFF;
+opacity: 1;
+}
+
+#about li{
+margin-right:50px;
+}
+
+#about.eng li{
+	margin-left:50px;
+}
+
+
