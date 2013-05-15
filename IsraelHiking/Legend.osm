@@ -1,47 +1,52 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <osm version='0.6' upload='true' generator='JOSM'>
+  <!-- lon delta 0.05, lat delta -0.022 -->
   <!-- First column nodes -->
-  <node id='-1' visible='true' lat='32.8525' lon='35.5664'>
+  <node id='-1'  lon='35.5655' lat='32.8430' >
     <tag k='amenity' v='parking' />
     <tag k='legend' v='point' />
     <tag k='name' v='חניה' />
     <tag k='name:en' v='Parking' />
     <tag k='name:he' v='חניה' />
   </node>
-  <node id='-2' visible='true' lat='32.8505' lon='35.5664'>
+  <node id='-2'  lon='35.5655' lat='32.8408' >
     <tag k='legend' v='point' />
     <tag k='name' v='חניון לילה' />
     <tag k='name:en' v='Camp site' />
     <tag k='name:he' v='חניון לילה' />
     <tag k='tourism' v='camp_site' />
   </node> 
-  <node id='-3' visible='true' lat='32.8485' lon='35.5664'>
+  <node id='-3'  lon='35.5655' lat='32.8386' >
     <tag k='legend' v='point' />
     <tag k='name' v='תצפית' />
     <tag k='name:en' v='Viewpoint' />
     <tag k='name:he' v='תצפית' />
     <tag k='tourism' v='viewpoint' />
   </node>
-  <node id='-4' visible='true' lat='32.8465' lon='35.5664'>
+  <node id='-4'  lon='35.5655' lat='32.8364' >
     <tag k='legend' v='point' />
     <tag k='name' v='פיקניק' />
     <tag k='name:en' v='Picnic' />
     <tag k='name:he' v='פיקניק' />
     <tag k='tourism' v='picnic_site' />
   </node>
-  <node id='-5' visible='true' lat='32.8445' lon='35.5664' />
-  <node id='-6' visible='true' lat='32.8425' lon='35.5664' />
-  <node id='-7' visible='true' lat='32.8405' lon='35.5664' />
-  <node id='-8' visible='true' lat='32.8385' lon='35.5664' />
-  <node id='-9' visible='true' lat='32.8365' lon='35.5664' />
-  <node id='-10' visible='true' lat='32.8345' lon='35.5664' />
-  <node id='-11' visible='true' lat='32.8325' lon='35.5664' />
-  <node id='-12' visible='true' lat='32.8305' lon='35.5664' />
-  <node id='-13' visible='true' lat='32.8285' lon='35.5664' />
-  <node id='-14' visible='true' lat='32.8265' lon='35.5664' />
+  <node id='-5'  lon='35.5655' lat='32.8342' />
+  <node id='-6'  lon='35.5655' lat='32.8320' />
+  <node id='-7'  lon='35.5655' lat='32.8298' />
+  <node id='-8'  lon='35.5655' lat='32.8276' />
+  <node id='-9'  lon='35.5655' lat='32.8254' />
+  <node id='-10' lon='35.5655' lat='32.8232' />
+  <node id='-11' lon='35.5655' lat='32.8210' />
+  <node id='-12' lon='35.5655' lat='32.8188' />
+  <node id='-13' lon='35.5655' lat='32.8166' />
+  <node id='-14' lon='35.5655' lat='32.8144' />
+  <node id='-15' lon='35.5655' lat='32.8122' />
+  <node id='-16' lon='35.5655' lat='32.8100' />
+  <node id='-17' lon='35.5655' lat='32.8078' />
+  <node id='-18' lon='35.5655' lat='32.8056' />
   
   <!-- Second column nodes -->
-  <node id='-51' visible='true' lat='32.8525' lon='35.5724'>
+  <node id='-51' lon='35.5705' lat='32.8430' >
     <tag k='amenity' v='place_of_worship' />
     <tag k='legend' v='point' />
     <tag k='name' v='כנסיה' />
@@ -49,7 +54,7 @@
     <tag k='name:he' v='כנסיה' />
     <tag k='religion' v='christian' />
   </node>
-  <node id='-52' visible='true' lat='32.8505' lon='35.5724'>
+  <node id='-52' lon='35.5705' lat='32.8408' >
     <tag k='amenity' v='place_of_worship' />
     <tag k='legend' v='point' />
     <tag k='name' v='מסגד' />
@@ -57,7 +62,7 @@
     <tag k='name:he' v='מסגד' />
     <tag k='religion' v='muslim' />
   </node>
-  <node id='-53' visible='true' lat='32.8485' lon='35.5724'>
+  <node id='-53' lon='35.5705' lat='32.8386' >
     <tag k='amenity' v='place_of_worship' />
     <tag k='legend' v='point' />
     <tag k='name' v='בית כנסת' />
@@ -65,26 +70,29 @@
     <tag k='name:he' v='בית כנסת' />
     <tag k='religion' v='jewish' />
   </node>
-  <node id='-54' visible='true' lat='32.8465' lon='35.5724'>
+  <node id='-54' lon='35.5705' lat='32.8364' >
     <tag k='legend' v='point' />
     <tag k='name' v='תחנת רכבת' />
     <tag k='name:en' v='Railway station' />
     <tag k='name:he' v='תחנת רכבת' />
     <tag k='railway' v='station' />
   </node>  
-  <node id='-55' visible='true' lat='32.8445' lon='35.5724' />
-  <node id='-56' visible='true' lat='32.8425' lon='35.5724' />
-  <node id='-57' visible='true' lat='32.8405' lon='35.5724' />
-  <node id='-58' visible='true' lat='32.8385' lon='35.5724' />
-  <node id='-59' visible='true' lat='32.8365' lon='35.5724' />
-  <node id='-60' visible='true' lat='32.8345' lon='35.5724' />
-  <node id='-61' visible='true' lat='32.8325' lon='35.5724' />
-  <node id='-62' visible='true' lat='32.8305' lon='35.5724' />
-  <node id='-63' visible='true' lat='32.8285' lon='35.5724' />
-  <node id='-64' visible='true' lat='32.8265' lon='35.5724' />
-  
+  <node id='-55' lon='35.5705' lat='32.8342' />
+  <node id='-56' lon='35.5705' lat='32.8320' />
+  <node id='-57' lon='35.5705' lat='32.8298' />
+  <node id='-58' lon='35.5705' lat='32.8276' />
+  <node id='-59' lon='35.5705' lat='32.8254' />
+  <node id='-60' lon='35.5705' lat='32.8232' />
+  <node id='-61' lon='35.5705' lat='32.8210' />
+  <node id='-62' lon='35.5705' lat='32.8188' />
+  <node id='-63' lon='35.5705' lat='32.8166' />
+  <node id='-64' lon='35.5705' lat='32.8144' />
+  <node id='-65' lon='35.5705' lat='32.8122' />
+  <node id='-66' lon='35.5705' lat='32.8100' />
+  <node id='-67' lon='35.5705' lat='32.8078' />
+  <node id='-68' lon='35.5705' lat='32.8056' /> 
   <!-- Third column nodes -->
-  <node id='-101' visible='true' lat='32.8525' lon='35.5784'>
+  <node id='-101' lon='35.5755' lat='32.8430' >
     <tag k='ele' v='1000' />
     <tag k='legend' v='point' />
     <tag k='name' v='נקודת גובה' />
@@ -92,88 +100,96 @@
     <tag k='name:he' v='נקודת גובה' />
     <tag k='natural' v='peak' />
   </node>
-  <node id='-102' visible='true' lat='32.8505' lon='35.5784'>
+  <node id='-102' lon='35.5755' lat='32.8408' >
     <tag k='legend' v='point' />
     <tag k='name' v='נביעה' />
     <tag k='name:en' v='Spring' />
     <tag k='name:he' v='נביעה' />
     <tag k='natural' v='spring' />
   </node>
-  <node id='-103' visible='true' lat='32.8485' lon='35.5784'>
+  <node id='-103' lon='35.5755' lat='32.8386' >
     <tag k='legend' v='point' />
     <tag k='man_made' v='water_well' />
     <tag k='name' v='באר' />
     <tag k='name:en' v='Water well' />
     <tag k='name:he' v='באר' />
   </node>
-  <node id='-104' visible='true' lat='32.8465' lon='35.5784'>
+  <node id='-104' lon='35.5755' lat='32.8364' >
     <tag k='legend' v='point' />
     <tag k='man_made' v='cistern' />
     <tag k='name' v='מאגר' />
     <tag k='name:en' v='Cistern' />
     <tag k='name:he' v='מאגר' />
   </node>
-  <node id='-105' visible='true' lat='32.8445' lon='35.5784' />
-  <node id='-106' visible='true' lat='32.8425' lon='35.5784' />
-  <node id='-107' visible='true' lat='32.8405' lon='35.5784' />
-  <node id='-108' visible='true' lat='32.8385' lon='35.5784' >
+  <node id='-105' lon='35.5755' lat='32.8342' />
+  <node id='-106' lon='35.5755' lat='32.8320' />
+  <node id='-107' lon='35.5755' lat='32.8298' />
+  <node id='-108' lon='35.5755' lat='32.8276' >
 	<tag k='power' v='tower' />
   </node>
-  <node id='-109' visible='true' lat='32.8365' lon='35.5784' />
-  <node id='-110' visible='true' lat='32.8345' lon='35.5784' />
-  <node id='-111' visible='true' lat='32.8325' lon='35.5784' />
-  <node id='-112' visible='true' lat='32.8305' lon='35.5784' />
-  <node id='-113' visible='true' lat='32.8285' lon='35.5784' />
-  <node id='-114' visible='true' lat='32.8265' lon='35.5784' />
+  <node id='-109' lon='35.5755' lat='32.8254' />
+  <node id='-110' lon='35.5755' lat='32.8232' />
+  <node id='-111' lon='35.5755' lat='32.8210' />
+  <node id='-112' lon='35.5755' lat='32.8188' />
+  <node id='-113' lon='35.5755' lat='32.8166' />
+  <node id='-114' lon='35.5755' lat='32.8144' />
+  <node id='-115' lon='35.5755' lat='32.8122' />
+  <node id='-116' lon='35.5755' lat='32.8100' />
+  <node id='-117' lon='35.5755' lat='32.8078' />
+  <node id='-118' lon='35.5755' lat='32.8056' /> 
   
   <!-- Fourth column nodes -->
-  <node id='-151' visible='true' lat='32.8525' lon='35.5844'>
+  <node id='-151' lon='35.5805' lat='32.8430' >
     <tag k='historic' v='ruins' />
     <tag k='legend' v='point' />
     <tag k='name' v='חורבות' />
     <tag k='name:en' v='Ruins' />
     <tag k='name:he' v='חורבות' />
   </node>
-  <node id='-152' visible='true' lat='32.8505' lon='35.5844'>
+  <node id='-152' lon='35.5805' lat='32.8408' >
     <tag k='historic' v='archaeological_site' />
     <tag k='legend' v='point' />
     <tag k='name' v='אתר ארכיולוגי' />
     <tag k='name:en' v='Archaeological site' />
     <tag k='name:he' v='אתר ארכיולוגי' />
   </node>
-  <node id='-153' visible='true' lat='32.8485' lon='35.5844'>
+  <node id='-153' lon='35.5805' lat='32.8386' >
     <tag k='historic' v='memorial' />
     <tag k='legend' v='point' />
     <tag k='name' v='יד זיכרון' />
     <tag k='name:en' v='Memorial' />
     <tag k='name:he' v='יד זיכרון' />
   </node>
-  <node id='-154' visible='true' lat='32.8465' lon='35.5844'>
+  <node id='-154' lon='35.5805' lat='32.8364' >
     <tag k='natural' v='cave_entrance' />
     <tag k='legend' v='point' />
     <tag k='name' v='מערה' />
     <tag k='name:en' v='Cave' />
     <tag k='name:he' v='מערה' />
   </node>
-  <node id='-155' visible='true' lat='32.8445' lon='35.5844' />
-  <node id='-156' visible='true' lat='32.8425' lon='35.5844' />
-  <node id='-157' visible='true' lat='32.8405' lon='35.5844' />
-  <node id='-158' visible='true' lat='32.8385' lon='35.5844' >
-	<tag k='power' v='station' />
-  </node>
-  <node id='-159' visible='true' lat='32.8365' lon='35.5844' />
-  <node id='-160' visible='true' lat='32.8345' lon='35.5844' />
-  <node id='-161' visible='true' lat='32.8325' lon='35.5844' />
-  <node id='-162' visible='true' lat='32.8305' lon='35.5844' />
-  <node id='-163' visible='true' lat='32.8285' lon='35.5844' />
-  <node id='-164' visible='true' lat='32.8265' lon='35.5844' />
-  
+  <node id='-155' lon='35.5805' lat='32.8342' />
+  <node id='-156' lon='35.5805' lat='32.8320' />
+  <node id='-157' lon='35.5805' lat='32.8298' />
+  <node id='-158' lon='35.5805' lat='32.8276' >
+	<tag k='power' v='station' />    
+  </node>                            
+  <node id='-159' lon='35.5805' lat='32.8254' />
+  <node id='-160' lon='35.5805' lat='32.8232' />
+  <node id='-161' lon='35.5805' lat='32.8210' />
+  <node id='-162' lon='35.5805' lat='32.8188' />
+  <node id='-163' lon='35.5805' lat='32.8166' />
+  <node id='-164' lon='35.5805' lat='32.8144' />
+  <node id='-165' lon='35.5805' lat='32.8122' />
+  <node id='-166' lon='35.5805' lat='32.8100' />
+  <node id='-167' lon='35.5805' lat='32.8078' />
+  <node id='-168' lon='35.5805' lat='32.8056' />  
+ 
   <!-- Legend nodes -->
-  <node id='-200' visible='true' lat='32.8545' lon='35.5634' />
-  <node id='-201' visible='true' lat='32.8245' lon='35.5634' />
-  <node id='-202' visible='true' lat='32.8245' lon='35.5874' />
-  <node id='-203' visible='true' lat='32.8545' lon='35.5874' />
-  <node id='-204' visible='true' lat='32.8545' lon='35.5754'>
+  <node id='-200' lon='35.5630' lat='32.8442' />
+  <node id='-201' lon='35.5630' lat='32.8045' />
+  <node id='-202' lon='35.5830' lat='32.8045' />
+  <node id='-203' lon='35.5830' lat='32.8442' />
+  <node id='-204' lon='35.5730' lat='32.8442' >
 	<tag k='legend' v='legend' />
 	<tag k='name' v='מקרא' />
 	<tag k='name:he' v='מקרא' />
@@ -181,7 +197,7 @@
   </node>
   
   <!-- First-second column ways -->
-  <way id='-301' visible='true'>
+  <way id='-301'>
     <nd ref='-5' />
     <nd ref='-55' />
     <tag k='highway' v='track' />
@@ -190,7 +206,7 @@
     <tag k='name:en' v='Track' />
     <tag k='name:he' v='דרך עפר' />
   </way>
-  <way id='-302' visible='true'>
+  <way id='-302'>
     <nd ref='-6' />
     <nd ref='-56' />
     <tag k='highway' v='path' />
@@ -199,7 +215,7 @@
     <tag k='name:en' v='Path' />
     <tag k='name:he' v='שביל' />
   </way>
-  <way id='-303' visible='true'>
+  <way id='-303'>
     <nd ref='-7' />
     <nd ref='-57' />
     <tag k='highway' v='cycleway' />
@@ -208,7 +224,7 @@
     <tag k='name:en' v='Cycle way' />
     <tag k='name:he' v='שביל אופניים' />
   </way>
-  <way id='-304' visible='true'>
+  <way id='-304'>
     <nd ref='-8' />
     <nd ref='-58' />
     <tag k='highway' v='footway' />
@@ -217,7 +233,7 @@
     <tag k='name:en' v='Foot way' />
     <tag k='name:he' v='שביל הולכי רגל' />
   </way>
-  <way id='-305' visible='true'>
+  <way id='-305'>
     <nd ref='-9' />
     <nd ref='-59' />
 	<nd ref='-60' />
@@ -229,7 +245,7 @@
     <tag k='name:en' v='Nature reserve' />
     <tag k='name:he' v='שמורת טבע' />
   </way>
-  <way id='-306' visible='true'>
+  <way id='-306'>
     <nd ref='-11' />
     <nd ref='-61' />
 	<nd ref='-62' />
@@ -241,7 +257,7 @@
     <tag k='name:en' v='Forest' />
     <tag k='name:he' v='חורשה או יער' />
   </way>
-  <way id='-307' visible='true'>
+  <way id='-307'>
     <nd ref='-13' />
     <nd ref='-63' />
 	<nd ref='-64' />
@@ -253,9 +269,33 @@
     <tag k='name:en' v='Military zone' />
     <tag k='name:he' v='שטח אש' />
   </way>
+  <way id='-308'>
+    <nd ref='-15' />
+    <nd ref='-65' />
+	<nd ref='-66' />
+	<nd ref='-16' />
+	<nd ref='-15' />
+	<tag k='landuse' v='field' />
+    <tag k='legend' v='area' />
+    <tag k='name' v='שדה' />
+    <tag k='name:en' v='Field' />
+    <tag k='name:he' v='שדה' />
+  </way>
+  <way id='-309'>
+    <nd ref='-17' />
+    <nd ref='-67' />
+	<nd ref='-68' />
+	<nd ref='-18' />
+	<nd ref='-17' />
+	<tag k='landuse' v='grass' />
+    <tag k='legend' v='area' />
+    <tag k='name' v='דשא' />
+    <tag k='name:en' v='Grass' />
+    <tag k='name:he' v='דשא' />
+  </way>
   
   <!-- Third-fourth column nodes -->
-  <way id='-351' visible='true'>
+  <way id='-351'>
     <nd ref='-105' />
     <nd ref='-155' />
 	<tag k='waterway' v='river' />
@@ -264,7 +304,7 @@
     <tag k='name:en' v='Stream' />
     <tag k='name:he' v='נחל איתן' />
   </way>
-  <way id='-352' visible='true'>
+  <way id='-352'>
     <nd ref='-106' />
     <nd ref='-156' />
 	<tag k='waterway' v='wadi' />
@@ -273,7 +313,7 @@
     <tag k='name:en' v='Wadi' />
     <tag k='name:he' v='נחל אכזב' />
   </way>
-  <way id='-353' visible='true'>
+  <way id='-353'>
     <nd ref='-107' />
     <nd ref='-157' />
 	<tag k='railway' v='rail' />
@@ -282,7 +322,7 @@
     <tag k='name:en' v='Railway' />
     <tag k='name:he' v='מסילת רכבת' />
   </way>
-  <way id='-354' visible='true'>
+  <way id='-354'>
     <nd ref='-108' />
     <nd ref='-158' />
 	<tag k='power' v='line' />
@@ -291,7 +331,7 @@
     <tag k='name:en' v='Power line' />
     <tag k='name:he' v='קו חשמל' />
   </way>
-  <way id='-355' visible='true'>
+  <way id='-355'>
     <nd ref='-109' />
     <nd ref='-159' />
 	<nd ref='-160' />
@@ -303,7 +343,7 @@
     <tag k='name:en' v='Beach' />
     <tag k='name:he' v='חוף' />
   </way>
-  <way id='-356' visible='true'>
+  <way id='-356'>
     <nd ref='-111' />
     <nd ref='-161' />
 	<nd ref='-162' />
@@ -315,21 +355,45 @@
     <tag k='name:en' v='Cemetery' />
     <tag k='name:he' v='בית קברות' />
   </way>
-  <way id='-357' visible='true'>
+  <way id='-357'>
     <nd ref='-113' />
     <nd ref='-163' />
 	<nd ref='-164' />
 	<nd ref='-114' />
 	<nd ref='-113' />
-	 <tag k='landuse' v='residential' />
+	<tag k='landuse' v='quarry' />
     <tag k='legend' v='area' />
-    <tag k='name' v='איזור מגורים' />
+    <tag k='name' v='מחצבה' />
+    <tag k='name:en' v='Quarry' />
+    <tag k='name:he' v='מחצבה' />
+  </way>
+  <way id='-358'>
+    <nd ref='-115' />
+    <nd ref='-165' />
+	<nd ref='-166' />
+	<nd ref='-116' />
+	<nd ref='-115' />
+	<tag k='landuse' v='orchard' />
+    <tag k='legend' v='area' />
+    <tag k='name' v='מטעים או כרמים' />
+    <tag k='name:en' v='Orchard or Vineyard' />
+    <tag k='name:he' v='מטעים או כרמים' />
+  </way>
+  <way id='-359'>
+    <nd ref='-117' />
+    <nd ref='-167' />
+	<nd ref='-168' />
+	<nd ref='-118' />
+	<nd ref='-117' />
+	<tag k='landuse' v='residential' />
+    <tag k='legend' v='area' />
+    <tag k='name' v='ישוב' />
     <tag k='name:en' v='Residential' />
-    <tag k='name:he' v='איזור מגורים' />
+    <tag k='name:he' v='ישוב' />
   </way>
   
   <!-- Legend area -->
-  <way id='-400' visible='true'>
+  <way id='-400'>
 	<nd ref='-200' />
     <nd ref='-201' />
 	<nd ref='-202' />

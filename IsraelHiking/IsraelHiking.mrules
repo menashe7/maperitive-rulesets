@@ -1,7 +1,6 @@
 // Maperitive rendering ruleset for hiking maps. The map style resembles 
 // that of paper hiking maps produced by Israel Trails Committee (ITC)
 //
-// Based on the map style that resembles that of paper hiking maps produced by Alpine Association of Slovenia (http://www.pzs.si/). 
 // http://maperitive.net
 
 // Created by Igor Brejc
@@ -9,6 +8,7 @@
 
 // History:
 // --------
+// 2013-15-05: Icon moved to a seperate folder, reduced some density by moving text to zoom 15, added scrub areas
 // 2013-11-05: Added Legend, fields, orchads, vineyard, quarry areas, guidepost
 //				quarry pattern was taken from http://subtlepatterns.com/.
 // 2013-04-27: Added acheological, ruins, memorial, chrch, mosque, synagogue, power line towers, beach, picnic and parking names.
@@ -28,12 +28,12 @@
 //		- added special rendering for tunnels
 
 // TODO (stuff still missing, will be added soon)
-// color schemes for areas such as scrubland, sand?
 // Cliffs
 // barrier/wall/gate/fence
 // riding dirrections in bike trails?
 // add blue border to lakes
 // add pools and water towers
+// decide if farmland/farmayrd is truely needed, and how to render it - currently not rendered
 
 // tower
 // ditch
@@ -43,9 +43,8 @@ features
 		church worship: amenity=place_of_worship AND (religion=christian OR religion=Christian)
 		mosque worship: amenity=place_of_worship AND (religion=muslim OR religion=Muslim)
 		synagogue worship: amenity=place_of_worship AND (religion=jewish OR religion=Jewish)
+		bahai worship: amenity=place_of_worship AND (religion=bahai OR religion=Bahai)
 //		food : amenity=restaurant OR amenity=fast_food OR tourism=guest_house
-//		alpine hut : tourism=alpine_hut
-//		shelter : amenity=shelter
 		railway station : railway=station
 		power tower : @isOneOf(power, tower, station, sub_station)
 		legend : legend=legend
@@ -101,8 +100,8 @@ features
 	areas
 		building : building=yes
 		cemetery : landuse=cemetery OR amenity=grave_yard
-		residential : landuse=residential
-		forest : landuse=forest OR natural=wood OR leisure=park
+		forest : landuse=forest OR natural=wood
+		grass : @isOneOf(landuse, grass, greenfield, village_green) OR @isOneOf(natural, scrub, heath, grassland) OR leisure=park
 		water : natural=water OR waterway=riverbank OR landuse=reservoir OR landuse=basin
 		nature reserve : boundary=national_park OR boundary=protected_area OR leisure=nature_reserve
 		military : landuse=military OR military=danger_area
@@ -110,7 +109,8 @@ features
 		quarry : landuse=quarry
 		field : @isOneOf(landuse, field, meadow)
 		plantation : @isOneOf(landuse, orchard, vineyard)
-		green area : @isOneOf(landuse, grass, greenfield, village_green, farmland, farmyard)
+		farm : @isOneOf(landuse, farmland, farmyard)
+		residential : landuse=residential
 
 properties
 	// curved : true
@@ -154,22 +154,6 @@ rules
 				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 		
-//	target: alpine hut
-//		define
-//			icon-image : icons/SJJB/png/accommodation_alpinehut.glow.32.png
-//			icon-width : 11:16;14:34
-//			min-zoom : 11
-//		draw : icon
-//		define
-//			font-family : Arial Black
-//			font-weight : bold
-//			font-size : 13:13;20:24
-//			font-stretch : 0.7
-//			min-zoom : 13
-//			text-align-vertical : near
-//			text-offset-vertical : 100%
-//		draw : text
-
 	target : peak
 		define
 			fill-color : black
@@ -253,12 +237,12 @@ rules
 
 	target : picnic
 		define
-			min-zoom : 12
-			icon-image : icons/SJJB/png/tourist_picnic.p.32.png
+			min-zoom : 13
+			icon-image : israelhiking/icons/SJJB/tourist_picnic.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 12
+			min-zoom : 15
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 		for : @isMatch(name, "[א-ת]")
@@ -271,8 +255,8 @@ rules
 
 	target : parking
 		define
-			min-zoom : 15
-			icon-image : icons/SJJB/png/transport_parking.n.32.png
+			min-zoom : 13
+			icon-image : israelhiking/icons/SJJB/transport_parking.n.32.png
 			icon-width : 16
 		draw : icon
 		define
@@ -289,12 +273,12 @@ rules
 
 	target : camp site
 		define
-			min-zoom : 12
-			icon-image : icons/SJJB/png/accommodation_camping.p.32.png
+			min-zoom : 13
+			icon-image : israelhiking/icons/SJJB/accommodation_camping.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 12
+			min-zoom : 15
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
@@ -308,12 +292,12 @@ rules
 
 	target : view
 		define
-			min-zoom : 12
-			icon-image : icons/SJJB/png/tourist_view_point.p.32.png
+			min-zoom : 13
+			icon-image : israelhiking/icons/SJJB/tourist_view_point.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 12
+			min-zoom : 15
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
@@ -328,11 +312,11 @@ rules
 	target : ruins
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_ruin.p.32.png
+			icon-image : israelhiking/icons/SJJB/tourist_ruin.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 13
+			min-zoom : 15
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
@@ -347,11 +331,11 @@ rules
 	target : archaeological
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_archaeological.p.32.png
+			icon-image : israelhiking/icons/SJJB/tourist_archaeological2.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 13
+			min-zoom : 15
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
@@ -366,11 +350,11 @@ rules
 	target : memorial
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/tourist_memorial.p.32.png
+			icon-image : israelhiking/icons/SJJB/tourist_memorial.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 13
+			min-zoom : 15
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
@@ -385,11 +369,11 @@ rules
 	target : cave
 		define
 			min-zoom : 13
-			icon-image : israelhiking/cave.png
+			icon-image : israelhiking/icons/SJJB/poi_cave.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 		define
-			min-zoom : 13
+			min-zoom : 15
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
@@ -400,24 +384,24 @@ rules
 			define
 				text : @any([[name:he]], [[name:en]], name)
 		draw : text
-		
-//	target: shelter
-//		define
-//			icon-image : icons/SJJB/png/accommodation_shelter2.n.32.png
-//			icon-width : 14:16;15:24
-//			min-zoom : 14
-//		draw : icon
 
 	target: *worship
 		if : church*
 			define
-				icon-image : icons/SJJB/png/place_of_worship_christian3.glow.32.png
+				icon-image : israelhiking/icons/SJJB/place_of_worship_christian3.glow.32.png
 		elseif : mosque*
 			define
-				icon-image : icons/SJJB/png/place_of_worship_islamic3.glow.32.png
+				icon-image : israelhiking/icons/SJJB/place_of_worship_islamic3.glow.32.png
 		elseif : synagogue*
 			define
-				icon-image : icons/SJJB/png/place_of_worship_jewish3.glow.32.png
+				icon-image : israelhiking/icons/SJJB/place_of_worship_jewish3.glow.32.png
+		elseif : bahai*
+			define
+				icon-image : israelhiking/icons/SJJB/place_of_worship_bahai3.glow.32.png
+		define 
+			icon-width : 14:16;20:30
+			min-zoom : 13
+		draw : icon
 		define
 			font-family : Arial
 			font-weight : bold
@@ -432,10 +416,6 @@ rules
 			define
 				text : @any([[name:he]], [[name:en]], name)
 		draw : text
-		define 
-			icon-width : 14:16;20:30
-			min-zoom : 15
-		draw : icon
 
 	target : railway station
 		define
@@ -457,7 +437,7 @@ rules
 	target : guidepost
 		define
 			min-zoom : 13
-			icon-image : icons/SJJB/png/poi_place_town.p.32
+			icon-image : israelhiking/icons/SJJB/tourist_guidepost.p.32.png
 			icon-width : 14:16;15:24
 		draw : icon	
 		
@@ -1183,25 +1163,6 @@ rules
 					line-color : black
 			define
 				line-width : 6:1;9:3;10:6
-//		// Hebrew preference for lines
-//		for : @isMatch(name, "[א-ת]")
-//			define
-//				text : name
-//				text-direction : rtl
-//		elsefor : name:he
-//			define
-//				text : [[name:he]]
-//				text-direction : rtl
-//		elsefor : name:en
-//			define
-//				text : [[name:en]]
-//		else
-//			define
-//				text : name
-//			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-//				define
-//					text-direction : rtl
-//			draw : text
 		draw : line		
 
 	target : water
@@ -1296,34 +1257,6 @@ rules
 					text-direction : rtl
 		draw : text
 
-	target : residential
-		define
-			line-style : none
-			line-width : 1
-			fill-color : #DCDCDC white 30%		
-		draw : fill
-		define
-			min-zoom : 17
-		// Hebrew preference for lines
-		for : @isMatch(name, "[א-ת]")
-			define
-				text : name
-				text-direction : rtl
-		elsefor : name:he
-			define
-				text : [[name:he]]
-				text-direction : rtl
-		elsefor : name:en
-			define
-				text : [[name:en]]
-		else
-			define
-				text : name
-			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-				define
-					text-direction : rtl
-		draw : text
-
 	target : beach
 		for : natural=sand
 			define
@@ -1363,7 +1296,7 @@ rules
 			line-style : none
 			line-width : 0
 			min-zoom : 9
-			fill-texture : israelhiking/quarry.png
+			fill-texture : israelhiking/icons/quarry.png
 		draw : fill
 		define
 			min-zoom : 13
@@ -1393,27 +1326,61 @@ rules
 	target : field
 		define
 			line-style : none
-			line-width : 1
-			fill-color : #E6DDD0
+			line-width : 0
+			//fill-color : #E6DDD0
+			fill-texture : israelhiking/icons/field.png
 			fill-opacity : 0.3
 		draw : fill
 	
-	target : green area
+	target : grass
 		define
 			line-style : none
 			line-width : 1
 			fill-color : #E9FDE0
 		draw : fill
-	
+		define
+			line-style : none
+			line-width : 0
+			fill-texture : israelhiking/icons/SJJB/landuse_grass.p.32.png
+		draw : fill
+		
 	target : plantation
 // based on : http://wiki.openstreetmap.org/wiki/Tag:landuse%3Dorchard#Rendering
 		define
 			line-style : none
 			line-width : 0
-			min-zoom : 9
-			fill-texture : israelhiking/plantation.png
+			fill-texture : israelhiking/icons/plantation.png
 		draw : fill
-
+		
+// residential and legend should be last
+	target : residential
+		define
+			line-style : none
+			line-width : 1
+			fill-color : #DCDCDC white 30%		
+		draw : fill
+		define
+			min-zoom : 17
+		// Hebrew preference for lines
+		for : @isMatch(name, "[א-ת]")
+			define
+				text : name
+				text-direction : rtl
+		elsefor : name:he
+			define
+				text : [[name:he]]
+				text-direction : rtl
+		elsefor : name:en
+			define
+				text : [[name:en]]
+		else
+			define
+				text : name
+			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
+				define
+					text-direction : rtl
+		draw : text
+		
 	target : legend
 		define
 			line-style : none
@@ -1429,5 +1396,4 @@ rules
 			text-offset-vertical : -50%
 			text : name
 		draw : text
-		
 // vim: set autoindent noexpandtab:
