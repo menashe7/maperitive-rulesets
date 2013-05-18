@@ -92,11 +92,11 @@
     <tag k='name:he' v='שער' />
     <tag k='barrier' v='gate' />
   </node>
-  <node id='-551' lon='35.5699' lat='32.8342' >
+  <node id='-551' lon='35.5695' lat='32.8342' >
 	<tag k='legend' v='point' />
     <tag k='barrier' v='kissing_gate' />
   </node>
-  <node id='-552' lon='35.5711' lat='32.8342' >
+  <node id='-552' lon='35.5715' lat='32.8342' >
 	<tag k='legend' v='point' />
     <tag k='barrier' v='lift_gate' />
   </node>
