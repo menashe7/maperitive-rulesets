@@ -1275,18 +1275,27 @@ rules
 			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
 				define
 					text-direction : rtl
-		draw : text	
-
+		draw : text
+	
 	target : forest
-		define
-			line-style : none
-			line-width : 1
-			min-zoom : 9
-			//fill-color : #8DC56C white 60%
-			fill-texture : Textures/ForestNoiseLight.jpg
-		draw : fill
-		define
-			min-zoom : 13
+// HM cant make this work correct:
+//		for : length > 20
+//			define 
+//				min-zoom : 11
+//		elsefor : length > 10
+//			define 
+//				min-zoom : 12
+//		elsefor : length > 5
+//			define 
+//				min-zoom : 13
+//		elsefor : length > 1
+//			define 
+//				min-zoom : 14
+//		else
+//			define
+//				min-zoom : 15
+		define 
+			min-zoom : 15
 			font-size : 12
 		// Hebrew preference for lines
 		for : @isMatch(name, "[א-ת]")
@@ -1307,7 +1316,14 @@ rules
 				define
 					text-direction : rtl
 		draw : text
-
+		define
+			line-style : none
+			line-width : 1
+			min-zoom : 9
+			//fill-color : #8DC56C white 60%
+			fill-texture : Textures/ForestNoiseLight.jpg
+		draw : fill
+		
 	target : beach
 		for : natural=sand
 			define
