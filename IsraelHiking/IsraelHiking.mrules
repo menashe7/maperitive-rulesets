@@ -1025,7 +1025,7 @@ rules
 			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
 				define
 					text-direction : rtl
-		draw : text	
+		draw : text
 
 	target : cliff
 		define
@@ -1047,13 +1047,10 @@ rules
 	target : fence
 		define
 			min-zoom : 14
-			line-color : gray
-			line-width : 1
-			shape : custom
-			shape-def : 0,3;0,-3;m:3,0;-3,0
-			shape-spacing : 0.3
-			shape-size : 5
-		draw : shape
+			line-color : black
+			line-width : 2
+			line-style : solid
+		draw : line
 	
 	target: contour*
 		define
@@ -1093,7 +1090,7 @@ rules
 			min-zoom : 13
 			text-opacity : 80%
 		draw : text
-		
+
 	target : grid
 		define
 			line-width : 11:0.5;12:2
@@ -1112,7 +1109,7 @@ rules
 			curved : true
 			line-opacity : 80%
 		draw : line
-		
+
 /////////////////////////////// areas ////////////////////////////
 
 	target : building
@@ -1160,6 +1157,7 @@ rules
 			fill-hatch : swne
 			fill-hatch-color : white
 			fill-hatch-opacity : 0
+			fill-opacity : 60%
 			line-style : none
 		draw : fill
 		define
@@ -1212,6 +1210,14 @@ rules
 			else
 				define
 					line-color : black
+					line-width : 1.5
+					shape : custom
+					shape-def : 0,3;0,-3;m:3,0;-3,0
+					shape-spacing : 0.5
+					shape-size : 6
+				draw : shape
+				define
+					line-style : none
 			define
 				line-width : 6:1;9:3;10:6
 		draw : line		
@@ -1276,7 +1282,7 @@ rules
 				define
 					text-direction : rtl
 		draw : text
-	
+
 	target : forest
 // HM cant make this work correct:
 //		for : length > 20
