@@ -209,7 +209,7 @@ var links = document.getElementsByClassName('OSM');
 	}
 	links = document.getElementsByClassName('Github');
 	for (var i = 0; i < links.length; ++i) {
-		links[i].href = "https://github.com/HarelM/maperitive-rulesets/tree/master/IsraelHiking#create-israel-hiking-map-similar-to-israel-trails-committee-itc";
+		links[i].href = "https://github.com/HarelM/maperitive-rulesets/tree/master/IsraelHiking#israel-hiking-map";
 		links[i].target = "_blank"
 	}
 	links = document.getElementsByClassName('OSMWiki');
