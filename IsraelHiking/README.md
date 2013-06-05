@@ -1,12 +1,12 @@
+#Israel Hiking Map
 Create Israel Hiking Map similar to Israel Trails Committee (ITC)
-================================
+
 
 The output of the map can be [seen here](http://osm.org.il/Israel%20Hiking/IsraelHikingMap.html)
 
-Ready-to-use maps
------------------
+###Ready-to-use maps
 
-Are available for:
+Ready-to-use maps are available for:
 * [OruxMaps](http://www.oruxmaps.com/index_en.html): 
     * Download the ["Israel Hiking" folder](https://googledrive.com/host/0B-qrsEBJWXhQUGVBM3lHZTF2eXc/) with both files it.
     * Place the directoryt under the oruxmaps/mapfiles directory on your device.
@@ -17,14 +17,13 @@ Are available for:
     * Re-index the maps using _"MAP -> Re-Index map files"_. 
 
 
-Abstract
-* The first part of following manual will explain how to create an Israel hiking style map (256x256 PNG tiles).
+###Abstract
+* Maperitive: The first part of following manual will explain how to create an Israel hiking style map (256x256 PNG tiles).
 Note that this might be tricky on PCs that has windows 32bit and 4GB RAM (I managed to do it but i had to close all other running applications).
-* The second part of the following manual will explain how to convert the map for offline use on an android device.
+* MOBAC: The second part of the following manual will explain how to convert the map for offline use on an android device.
 
 
-Maperitive
-----------
+##Maperitive
 
 Maperitive runs on Windows, Linux and MAC.
 
@@ -40,11 +39,11 @@ Maperitive runs on Windows, Linux and MAC.
 
 This should generate 256x256 png tile files inside IsraelHiking\Tiles directory and should take long (about 3 hours or more, I prefer to do it overnight, but you need to make sure you don't get out of memory).
 
-MOBAC and Oruxmaps
--------------------------
+##MOBAC and Oruxmaps
 
-[MOBAC - MOBile Atlas Creator](http://mobac.sourceforge.net/) is a JAVA program that runs on Windows, Linux, MAC, and more. It creates offline maps for many navigation applications.
-Oruxmaps is an offline navigation application for Android.
+[MOBAC - MOBile Atlas Creator](http://mobac.sourceforge.net/) is a JAVA program that runs on Windows, Linux, MAC, and more. It creates offline maps for [http://mobac.sourceforge.net/#features](many navigation applications).
+Oruxmaps is an offline and online navigation application for Android.
+MOBAC is creating Oruxmaps offline maps from the Maperitive results.
 
 1. In order to use an offline version of this map in an android device first install [Oruxmaps](http://www.oruxmaps.com/index_en.html) from the [play store](https://play.google.com/store/apps/details?id=com.orux.oruxmaps). Oruxmaps is free of charge and does not have ads. It was not created by any of us, yet we recommend you buy the [donate version](https://play.google.com/store/apps/details?id=com.orux.oruxmapsDonate).
 2. Download [MOBAC - MOBile Atlas Creator](http://mobac.sourceforge.net/).
@@ -66,4 +65,4 @@ Oruxmaps is an offline navigation application for Android.
 
 
 -------------------------
-Created by Harel Mazor and Zeev Stadler 31.3.13. Last Updated: 26.4.13
+Created by Harel Mazor and Zeev Stadler 31.3.13. Last Updated: 5.6.13
