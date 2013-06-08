@@ -8,8 +8,8 @@ The output of the map can be [seen here](http://osm.org.il/Israel%20Hiking/Israe
 
 Ready-to-use maps are available for:
 * [OruxMaps](http://www.oruxmaps.com/index_en.html): 
-    * Download the ["Israel Hiking" folder](https://googledrive.com/host/0B-qrsEBJWXhQUGVBM3lHZTF2eXc/) with both files it.
-    * Place the directoryt under the oruxmaps/mapfiles directory on your device.
+    * Download the ["Israel Hiking" folder](https://googledrive.com/host/0B-qrsEBJWXhQUGVBM3lHZTF2eXc/) with both files in it.
+    * Place the directory under the oruxmaps/mapfiles directory on your device.
     * Re-generate the maps database using _"Maps -> Switch map -> offline -> Refresh (the counter-clockwise arrow)"_
 * [OziExplorer](http://www.oziexplorer.com/): _Based on [this thread](http://www.jeepolog.com/forums/showthread.php?t=74909&p=508197)._
     * Download [the 6 files here](https://www.dropbox.com/sh/h8ye52ahotghta1/tTeUkbTspw).
@@ -65,4 +65,4 @@ MOBAC is creating Oruxmaps offline maps from the Maperitive results.
 
 
 -------------------------
-Created by Harel Mazor and Zeev Stadler 31.3.13. Last Updated: 5.6.13
+Created by Harel Mazor and Zeev Stadler 31.3.13. Last Updated: 8.6.13

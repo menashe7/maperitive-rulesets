@@ -1048,9 +1048,18 @@ rules
 		define
 			min-zoom : 14
 			line-color : black
-			line-width : 2
+			line-width : 1
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 14
+			line-color : black
+			line-width : 1.5
+			shape : custom
+			shape-def : 2,2;-2,-2;m:2,-2;-2,2
+			shape-spacing : 3
+			shape-size : 5
+		draw : shape
 	
 	target: contour*
 		define
@@ -1473,13 +1482,14 @@ rules
 			draw : text
 		elsefor : legend=background
 			define
+				min-zoom : 8
 				line-style : none
 				line-width : 1
 				fill-color : #F0FFFF
 			draw : fill
 		else
 			define
-				font-size : 13:8;16:14
+				min-zoom : 13
 				text : name
 				text-align-horizontal : center
 				text-align-vertical : center
