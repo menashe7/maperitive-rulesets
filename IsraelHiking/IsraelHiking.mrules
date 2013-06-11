@@ -91,7 +91,8 @@ features
 		power line : @isOneOf(power, line, minor_line)
 		stream : @isOneOf(waterway, stream, river, wadi)
 		cliff : natural=cliff
-		fence : @isOneOf(barrier, fence, wall)
+		fence : barrier=fence
+		wall : barrier=wall
 		boundary country : boundary=administrative AND admin_level=2 AND NOT natural=coastline
 		grid : grid
 		legend : legend=line_missing
@@ -496,6 +497,12 @@ rules
 			min-zoom : 15
 			line-width : 1
 		draw : line
+		define
+			shape : circle
+			shape-spacing : 20
+			shape-size : 2.5
+			fill-opacity : 0
+		draw : shape
 
 	target : railway rail
 		define
@@ -1044,17 +1051,20 @@ rules
 		draw : line 	
 
 		
+	target : wall
+		define
+			min-zoom : 14
+			line-color : black
+			line-width : 2
+			line-style : solid
+		draw : line
 	target : fence
 		define
 			min-zoom : 14
 			line-color : black
-			line-width : 1
-			line-style : solid
+			line-width : 1.5
 		draw : line
 		define
-			min-zoom : 14
-			line-color : black
-			line-width : 1.5
 			shape : custom
 			shape-def : 2,2;-2,-2;m:2,-2;-2,2
 			shape-spacing : 3
