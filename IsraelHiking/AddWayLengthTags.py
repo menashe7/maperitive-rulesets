@@ -22,7 +22,7 @@ def getLength(node1, node2):
 	length = math.sqrt(distx*distx+disty*disty)
 	return length
 
-# Look for the first OSM map source.
+# Look at all OSM map sources.
 for layer in Map.layers:
     if layer.layer_type == "OsmLayer":
         osmWayList = layer.osm
