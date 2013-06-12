@@ -96,7 +96,7 @@ features
 		boundary country : boundary=administrative AND admin_level=2 AND NOT natural=coastline
 		grid : grid
 		legend : legend=line_missing
-		
+
 	areas
 		building : building=yes
 		cemetery : landuse=cemetery OR amenity=grave_yard
@@ -146,6 +146,7 @@ rules
 			stop
 		define
 			font-weight : bold
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -188,6 +189,7 @@ rules
 				text-align-horizontal : center
 				text-offset-vertical : -70%
 				text-offset-horizontal : 0
+			// Hebrew preference for points & areas
 			for : @isMatch(name, "[א-ת]")
 				define
 					text : name
@@ -217,6 +219,7 @@ rules
 			text-max-width : 10
 			text-offset-vertical : 150%
 			text-align-vertical : far
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -245,6 +248,7 @@ rules
 			min-zoom : 15
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -263,6 +267,7 @@ rules
 			min-zoom : 15
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -282,6 +287,7 @@ rules
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -301,6 +307,7 @@ rules
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -320,6 +327,7 @@ rules
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -339,6 +347,7 @@ rules
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -358,6 +367,7 @@ rules
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -377,6 +387,7 @@ rules
 			font-size : 13:10;16:20
 			text-offset-vertical : 120%
 			text : name
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -409,6 +420,7 @@ rules
 			min-zoom : 15
 			text-align-vertical : near
 			text-offset-vertical : 100%
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -533,6 +545,7 @@ rules
 			text-align-vertical : center
 			text-offset-vertical : 100%
 			font-size : 14:10;20:20
+		// Hebrew preference for lines
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
@@ -1150,24 +1163,13 @@ rules
 			font-size : 12
 			text-color : green
 			font-weight : normal
-		// Hebrew preference for lines
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
-				text-direction : rtl
-		elsefor : name:he
-			define
-				text : [[name:he]]
-				text-direction : rtl
-		elsefor : name:en
-			define
-				text : [[name:en]]
 		else
 			define
-				text : name
-			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-				define
-					text-direction : rtl
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 
 	target : military
@@ -1184,24 +1186,13 @@ rules
 			font-size : 12
 			text-color : red
 			font-weight : normal
-		// Hebrew preference for lines
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
-				text-direction : rtl
-		elsefor : name:he
-			define
-				text : [[name:he]]
-				text-direction : rtl
-		elsefor : name:en
-			define
-				text : [[name:en]]
 		else
 			define
-				text : name
-			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-				define
-					text-direction : rtl
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 		
 	target : boundary*
@@ -1259,24 +1250,13 @@ rules
 			font-style : italic
 			font-weight : bold
 			text-color : #78C1C1 black 10%
-		// Hebrew preference for lines
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
-				text-direction : rtl
-		elsefor : name:he
-			define
-				text : [[name:he]]
-				text-direction : rtl
-		elsefor : name:en
-			define
-				text : [[name:en]]
 		else
 			define
-				text : name
-			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-				define
-					text-direction : rtl
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 
 	target : cemetery
@@ -1288,24 +1268,13 @@ rules
 		define
 			min-zoom : 13
 			font-size : 12
-		// Hebrew preference for lines
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
-				text-direction : rtl
-		elsefor : name:he
-			define
-				text : [[name:he]]
-				text-direction : rtl
-		elsefor : name:en
-			define
-				text : [[name:en]]
 		else
 			define
-				text : name
-			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-				define
-					text-direction : rtl
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 
 	target : forest
@@ -1328,24 +1297,13 @@ rules
 		define 
 			min-zoom : 15
 			font-size : 12
-		// Hebrew preference for lines
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
-				text-direction : rtl
-		elsefor : name:he
-			define
-				text : [[name:he]]
-				text-direction : rtl
-		elsefor : name:en
-			define
-				text : [[name:en]]
 		else
 			define
-				text : name
-			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-				define
-					text-direction : rtl
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 		define
 			line-style : none
@@ -1354,6 +1312,13 @@ rules
 			//fill-color : #8DC56C white 60%
 			fill-texture : Textures/ForestNoiseLight.jpg
 		draw : fill
+//		define
+//			text-align-vertical : far
+//			text-align-horizontal : center
+//			text-offset-vertical : 280%
+//			text-offset-horizontal : 0
+//			text : "[" source "]"
+//		draw : text
 		
 	target : beach
 		for : natural=sand
@@ -1369,24 +1334,13 @@ rules
 			font-size : 12
 			text-color : black
 			text : name
-		// Hebrew preference for lines
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
-				text-direction : rtl
-		elsefor : name:he
-			define
-				text : [[name:he]]
-				text-direction : rtl
-		elsefor : name:en
-			define
-				text : [[name:en]]
 		else
 			define
-				text : name
-			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-				define
-					text-direction : rtl
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 	
 	target : quarry
@@ -1401,24 +1355,13 @@ rules
 			font-size : 12
 			text-color : black
 			text : name
-		// Hebrew preference for lines
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
-				text-direction : rtl
-		elsefor : name:he
-			define
-				text : [[name:he]]
-				text-direction : rtl
-		elsefor : name:en
-			define
-				text : [[name:en]]
 		else
 			define
-				text : name
-			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-				define
-					text-direction : rtl
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 
 	target : field
@@ -1459,24 +1402,13 @@ rules
 		draw : fill
 		define
 			min-zoom : 17
-		// Hebrew preference for lines
+		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
 			define
 				text : name
-				text-direction : rtl
-		elsefor : name:he
-			define
-				text : [[name:he]]
-				text-direction : rtl
-		elsefor : name:en
-			define
-				text : [[name:en]]
 		else
 			define
-				text : name
-			for : @isMatch(name, "[א-ת؀-ݭﬠ-ﻼ]")
-				define
-					text-direction : rtl
+				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 		
 	target : legend
