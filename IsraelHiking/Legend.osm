@@ -79,11 +79,12 @@
     <tag k='religion' v='jewish' />
   </node>
   <node id='-54' lon='35.5705' lat='32.8364' >
+	<tag k='amenity' v='place_of_worship' />
     <tag k='legend' v='point' />
-    <tag k='name' v='תחנת רכבת' />
-    <tag k='name:en' v='Railway station' />
-    <tag k='name:he' v='תחנת רכבת' />
-    <tag k='railway' v='station' />
+    <tag k='name' v='בית תפילה בהאי' />
+    <tag k='name:en' v='Bahai Place of Worship' />
+    <tag k='name:he' v='בית תפילה בהאי' />
+    <tag k='religion' v='Bahai' />
   </node>  
   <node id='-55' lon='35.5705' lat='32.8342' >
 	<tag k='legend' v='point_missing' />
@@ -200,7 +201,13 @@
     <tag k='name:en' v='Cave' />
     <tag k='name:he' v='מערה' />
   </node>
-  <node id='-155' lon='35.5805' lat='32.8342' />
+  <node id='-155' lon='35.5805' lat='32.8342' >
+	<tag k='legend' v='point' />
+    <tag k='name' v='תחנת רכבת' />
+    <tag k='name:en' v='Railway station' />
+    <tag k='name:he' v='תחנת רכבת' />
+    <tag k='railway' v='station' />
+  </node>
   <node id='-156' lon='35.5805' lat='32.8320' />
   <node id='-157' lon='35.5805' lat='32.8298' />
   <node id='-158' lon='35.5805' lat='32.8276' />                          
