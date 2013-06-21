@@ -368,7 +368,7 @@
     <nd ref='-108' />
     <nd ref='-158' />
 	<tag k='railway' v='rail' />
-    <tag k='legend' v='line' />
+    <tag k='legend' v='line_missing' />
     <tag k='name' v='מסילת רכבת' />
     <tag k='name:en' v='Railway' />
     <tag k='name:he' v='מסילת רכבת' />
