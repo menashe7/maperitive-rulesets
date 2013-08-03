@@ -45,6 +45,7 @@ features
 		legend : @isOneOf(legend, header, background, area_missing)
 		// text for point/area is used in order to group all the text rendering into one place and to avoid multiple labels.
 		POI text : natural=peak OR natural=spring OR man_made=water_well OR man_made=cistern OR @isOneOf(leisure, picnic, picnic_table) OR tourism=picnic_site OR amenity=parking OR tourism=camp_site OR tourism=viewpoint OR historic=ruins OR historic=archaeological_site OR historic=memorial OR natural=cave_entrance OR legend=point_missing OR railway=station OR amenity=place_of_worship
+		forest label: (landuse=forest OR natural=wood) AND length
 
 	points
 		place : place OR landuse=farmyard
@@ -1139,25 +1140,28 @@ rules
 				text : @any([[name:he]], [[name:en]], name)
 		draw : text
 
-	target : forest
-// HM cant make this work correct:
-//		for : length > 20
-//			define
-//				min-zoom : 11
-//		elsefor : length > 10
-//			define
-//				min-zoom : 12
-//		elsefor : length > 5
-//			define
-//				min-zoom : 13
-//		elsefor : length > 1
-//			define
-//				min-zoom : 14
-//		else
-//			define
-//				min-zoom : 15
+	target : forest label
+		for : length > 5
+			define
+				min-zoom : 11
+		elsefor : length > 2
+			define
+				min-zoom : 12
+		elsefor : length > 1
+			define
+				min-zoom : 13
+		elsefor : length > 0.5
+			define
+				min-zoom : 14
+		elsefor : length > 0.2
+			define
+				min-zoom : 15
+		elsefor : length > 0.1
+			define
+				min-zoom : 16
+		else
+			stop
 		define
-			min-zoom : 15
 			font-size : 12
 		// Hebrew preference for points & areas
 		for : @isMatch(name, "[א-ת]")
@@ -1167,20 +1171,14 @@ rules
 			define
 				text : @any([[name:he]], [[name:en]], name)
 		draw : text
+	target : forest
 		define
 			line-style : none
 			line-width : 1
 			min-zoom : 9
-			//fill-color : #8DC56C white 60%
+			// fill-color : #8DC56C white 60%
 			fill-texture : Textures/ForestNoiseLight.jpg
 		draw : fill
-//		define
-//			text-align-vertical : far
-//			text-align-horizontal : center
-//			text-offset-vertical : 280%
-//			text-offset-horizontal : 0
-//			text : "[" source "]"
-//		draw : text
 
 	target : beach
 		for : natural=sand
