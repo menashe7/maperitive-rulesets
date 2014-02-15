@@ -551,9 +551,12 @@ rules
 			elsefor : length > 4
 				define
 					min-zoom : 12
-			else
+			elsefor : length > 2
 				define
 					min-zoom : 13
+			else
+				define
+					min-zoom : 14
 		elseif : * secondary
 			for : length > 8
 				define
