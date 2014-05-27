@@ -8,6 +8,11 @@
 
 // History:
 // --------
+// 2014-05-23: Added fuel stations, regional trails on one side, changed to "glow" icons, refined text size, contour emphasis
+// 2014-04-14: Moved parking to areas, added bridge and tunnels, removed shields from roundabouts
+// 2014-02-14: Show short primary roads at zoom 14 and up
+// 2013-08-03: Show forest labels according to the forest's size
+// 2013-08-02: whitespace cleanup
 // 2013-06-21: Fixed a bug regarding multi tags in one POI, moved most of the labels to one place
 // 2013-05-18: Added Cliffs, gates, blue border to lakes, fence and wall, water tower
 // 2013-05-15: Icon moved to a separate folder, reduced some density by moving text to zoom 15, added scrub areas
@@ -33,6 +38,7 @@
 // riding directions in bike trails
 // pools
 // farmland/farmyard
+// waterfalls
 
 features
 	points, areas
@@ -41,11 +47,13 @@ features
 		synagogue worship: amenity=place_of_worship AND (religion=jewish OR religion=Jewish)
 		bahai worship: amenity=place_of_worship AND (religion=bahai OR religion=Bahai)
 		railway station : railway=station
+		parking : amenity=parking
 		power tower : @isOneOf(power, tower, station, sub_station)
 		legend : @isOneOf(legend, header, background, area_missing)
 		// text for point/area is used in order to group all the text rendering into one place and to avoid multiple labels.
-		POI text : natural=peak OR natural=spring OR man_made=water_well OR man_made=cistern OR @isOneOf(leisure, picnic, picnic_table) OR tourism=picnic_site OR amenity=parking OR tourism=camp_site OR tourism=viewpoint OR historic=ruins OR historic=archaeological_site OR historic=memorial OR natural=cave_entrance OR legend=point_missing OR railway=station OR amenity=place_of_worship
+		POI text : natural=peak OR natural=spring OR man_made=water_well OR man_made=cistern OR @isOneOf(leisure, picnic, picnic_table) OR tourism=picnic_site OR amenity=parking OR tourism=camp_site OR tourism=viewpoint OR historic=ruins OR historic=archaeological_site OR historic=memorial OR natural=cave_entrance OR legend=point_missing OR railway=station OR amenity=place_of_worship OR historic=monument
 		forest label: (landuse=forest OR natural=wood) AND length
+		fuel: amenity=fuel
 
 	points
 		place : place OR landuse=farmyard
@@ -54,7 +62,6 @@ features
 		water well : man_made=water_well
 		water cistern : man_made=cistern
 		picnic : @isOneOf(leisure, picnic, picnic_table) OR tourism=picnic_site
-		parking : amenity=parking
 		camp site : tourism=camp_site
 		view : tourism=viewpoint
 		ruins : historic=ruins
@@ -63,6 +70,7 @@ features
 		cave : natural=cave_entrance
 		guidepost : information=guidepost
 		watertower : man_made=water_tower
+		monument : historic=monument
 		gate : @isOneOf(barrier, gate, lift_gate, kissing_gate, stile)
 		grid label north : grid AND @isMulti(east, 10) AND @isMulti(north, 2)
 		grid label east : grid AND @isMulti(north, 10) AND @isMulti(east, 2)
@@ -197,7 +205,7 @@ rules
 	target : picnic
 		define
 			min-zoom : 13
-			icon-image : israelhiking/icons/SJJB/tourist_picnic.p.32.png
+			icon-image : israelhiking/icons/SJJB/tourist_picnic.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
@@ -205,48 +213,55 @@ rules
 		define
 			min-zoom : 15
 			icon-image : israelhiking/icons/SJJB/transport_parking.n.32.png
-			icon-width : 16
+			icon-width : 14
+		draw : icon
+
+	target : fuel
+		define
+			min-zoom : 15
+			icon-image : israelhiking/icons/SJJB/transport_fuel.glow.32.png
+			icon-width : 24
 		draw : icon
 
 	target : camp site
 		define
 			min-zoom : 13
-			icon-image : israelhiking/icons/SJJB/accommodation_camping.p.32.png
+			icon-image : israelhiking/icons/SJJB/accommodation_camping.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : view
 		define
 			min-zoom : 13
-			icon-image : israelhiking/icons/SJJB/tourist_view_point.p.32.png
+			icon-image : israelhiking/icons/SJJB/tourist_view_point.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : ruins
 		define
 			min-zoom : 13
-			icon-image : israelhiking/icons/SJJB/tourist_ruin.p.32.png
+			icon-image : israelhiking/icons/SJJB/tourist_ruin.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : archaeological
 		define
 			min-zoom : 13
-			icon-image : israelhiking/icons/SJJB/tourist_archaeological2.p.32.png
+			icon-image : israelhiking/icons/SJJB/tourist_archaeological2.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : memorial
 		define
 			min-zoom : 13
-			icon-image : israelhiking/icons/SJJB/tourist_memorial.p.32.png
+			icon-image : israelhiking/icons/SJJB/tourist_memorial.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : cave
 		define
 			min-zoom : 13
-			icon-image : israelhiking/icons/SJJB/poi_cave.p.32.png
+			icon-image : israelhiking/icons/SJJB/poi_cave.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
@@ -288,14 +303,21 @@ rules
 	target : guidepost
 		define
 			min-zoom : 13
-			icon-image : israelhiking/icons/SJJB/tourist_guidepost.p.32.png
+			icon-image : israelhiking/icons/SJJB/tourist_guidepost.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
 	target : watertower
 		define
 			min-zoom : 13
-			icon-image : israelhiking/icons/SJJB/water_tower.p.32.png
+			icon-image : israelhiking/icons/SJJB/water_tower.glow.32.png
+			icon-width : 14:16;15:24
+		draw : icon
+	
+	target : monument
+		define
+			min-zoom : 13
+			icon-image : israelhiking/icons/SJJB/tourist_monument.glow.32.png
 			icon-width : 14:16;15:24
 		draw : icon
 
@@ -305,16 +327,13 @@ rules
 			icon-width : 16
 		for : barrier=gate
 			define
-				icon-image : israelhiking/icons/SJJB/barrier_gate.p.32.png
-		elsefor : barrier=kissing_gate
+				icon-image : israelhiking/icons/SJJB/barrier_gate.glow.32.png
+		elsefor : barrier=kissing_gate OR barrier=stile
 			define
-				icon-image : israelhiking/icons/SJJB/barrier_kissing_gate.p.32.png
-		elsefor : barrier=stile
-			define
-				icon-image : israelhiking/icons/SJJB/barrier_kissing_gate.p.32.png
+				icon-image : israelhiking/icons/SJJB/barrier_kissing_gate.glow.32.png
 		elsefor : barrier=lift_gate
 			define
-				icon-image : israelhiking/icons/SJJB/barrier_lift_gate.p.32.png
+				icon-image : israelhiking/icons/SJJB/barrier_lift_gate.glow.32.png
 		draw : icon
 
 // by using this statement we make sure only one label is written for POI with more than one tag
@@ -322,7 +341,7 @@ rules
 	target : POI text
 		define
 			min-zoom : 15
-			font-size : 13:10;16:20
+			font-size : 10
 			text-offset-vertical : 120%
 			text : name
 		for : natural=peak
@@ -330,7 +349,7 @@ rules
 				font-family : Cambria
 				font-style : italic
 				font-weight : bold
-				font-size : 13:10;15:16
+				font-size : 13:10;15:18
 				min-zoom : 13
 				text-color : black
 				text-max-width : 15
@@ -428,6 +447,16 @@ rules
 			line-color : gray
 			line-width : 2
 		draw : line
+	target : railway rail
+		for : bridge=yes
+			define
+				min-zoom : 13
+				line-style : solid
+				line-color : black
+				line-offset : 2
+				line-width : 2
+				line-offset-sides : both
+			draw : line
 
 	target : road *
 		if : * motorway
@@ -489,9 +518,19 @@ rules
 			line-width : 10:0.5;13:2;14:2;16:3
 			border-style : solid
 			border-width : 80%
+
+		for : tunnel=yes
+			define
+				border-style : dot
+				line-style : dot
+
+		for : bridge=yes
+			define
+				border-width : 150%
+
 		draw : line
 
-// Major Road Sheilds
+// Major Road Shields
 // The length in Km is computed by a Python routine
 
 		// default min-zoom is set for safety
@@ -499,6 +538,8 @@ rules
 			min-zoom : 22
 
 		for : length < 1
+			stop
+		for : junction = roundabout
 			stop
 		if : * motorway
 			for : length > 16
@@ -680,6 +721,9 @@ rules
 				min-zoom : 14
 				line-color : black white 30%
 				line-width : 13:1;14:1.5
+		for : bridge=yes
+			define
+				border-width : 150%
 		draw : line
 		define
 			min-zoom : 14
@@ -798,7 +842,7 @@ rules
 			min-zoom : 7
 			line-width : 7:1;10:1;11:2;13:2;15:2.5
 			line-offset : 12:0;13:3;14:4;15:4
-			line-offset-sides : both
+			line-offset-sides : left
 
 		if : * jerusalem trail
 			define
@@ -829,7 +873,7 @@ rules
 			min-zoom : 7
 			line-width : 7:1;10:1;11:2;13:2;15:2.5
 			line-offset : 12:0;13:3;14:4;15:4
-			line-offset-sides : both
+			line-offset-sides : left
 		if : * jerusalem trail
 			define
 				line-color : yellow
@@ -953,7 +997,7 @@ rules
 	target: contour*
 		define
 			line-color : #7f3300
-			line-opacity : 0.6
+			line-opacity : 0.8
 			curved : true
 		if : *major
 			define
