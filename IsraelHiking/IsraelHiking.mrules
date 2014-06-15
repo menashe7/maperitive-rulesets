@@ -8,6 +8,7 @@
 
 // History:
 // --------
+// 2014-06-07: Added Area A, Area B, and Haifa Wadis Trail
 // 2014-05-23: Added fuel stations, regional trails on one side, changed to "glow" icons, refined text size, contour emphasis
 // 2014-04-14: Moved parking to areas, added bridge and tunnels, removed shields from roundabouts
 // 2014-02-14: Show short primary roads at zoom 14 and up
@@ -85,6 +86,7 @@ features
 		hiking regional jerusalem trail: relation[network = rwn @isMatch(name:en,"Jerusalem Trail")]
 		hiking regional northern galilee trail: relation[network = rwn @isMatch(name:en,"Northern Galilee Regional Trail")]
 		hiking regional coast to coast: relation[network = rwn @isMatch(name:en,"Coast to Coast")]
+		hiking regional haifa wadis: relation[network = rwn @isMatch(int_name,"Haifa Wadis Trail")]
 		hiking national: relation[network = nwn]
 
 		cycle path : highway=cycleway OR (highway=path AND bicycle=designated)
@@ -123,6 +125,8 @@ features
 		plantation : @isOneOf(landuse, orchard, vineyard)
 		farm : @isOneOf(landuse, farmland, farmyard)
 		residential : landuse=residential
+		Area A : relation[boundary=administrative AND admin_level=3 AND name="Area A"]
+		Area B : relation[boundary=administrative AND admin_level=3 AND name="Area B"]
 
 properties
 	// curved : true
@@ -862,6 +866,9 @@ rules
 		elseif : * coast to coast
 			define
 				line-color : yellow
+		elseif : * haifa wadis
+			define
+				line-color : green
 		else
 			stop
 		draw : line
@@ -892,6 +899,9 @@ rules
 		elseif : * coast to coast
 			define
 				line-color : white black 10%
+		elseif : * haifa wadis
+			define
+				line-color : orange
 		else
 			stop
 		draw : line
@@ -1299,6 +1309,25 @@ rules
 			line-width : 0
 			fill-texture : israelhiking/icons/plantation.png
 		draw : fill
+
+	target : Area *
+		define
+			line-style : solid
+			line-width : 1
+			line-color : orange
+			min-zoom : 9
+			fill-opacity : 50%
+		draw : line
+		if : * A
+			define
+				fill-color : orange white 40%
+		elseif : * B
+			define
+				fill-color : orange white 70%
+		else
+			 stop
+		draw : fill
+
 
 // residential and legend should be last
 	target : residential
