@@ -14,7 +14,7 @@ if not os.path.exists(App.script_dir +'\output\TileUpdate.zip') and not os.path.
                      "--no-directories", "--no-verbose",
                      '--directory-prefix="' + App.script_dir +'"',
                      "http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf"])
-    LastModified = datetime.datetime.fromtimestamp(os.path.getmtime('israel-and-palestine-latest.osm.pbf'))
+    LastModified = datetime.datetime.fromtimestamp(os.path.getmtime(App.script_dir + '\israel-and-palestine-latest.osm.pbf'))
     if LastModified + datetime.timedelta(1) < datetime.datetime.today():
 	    App.log("=== pbf file not updated ===");
 	    App.run_command("pause 15000")

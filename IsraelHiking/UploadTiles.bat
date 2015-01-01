@@ -21,17 +21,23 @@ IF EXIST .\PuTTYOSM.ppk (
 ECHO on
 
 @echo %DATE% %TIME%
-"%~dp0\..\..\WinSCP\WinSCP.com" /command "open ""Upload-osm.org.il""" "option reconnect 15" "option batch abort" "put -resume -preservetime -transfer=binary ""%~dp0\Output\%ZIPFILE%""" "exit" 
+rem Generate temporary script to upload %ZIPFILE%
+echo option batch abort > script.tmp
+echo option confirm off >> script.tmp
+echo option reconnect 15 >> script.tmp
+echo open Upload-osm.org.il >> script.tmp
+echo put -resume -preservetime -transfer=binary "%~dp0Output\%ZIPFILE%" >> script.tmp
+echo call unzip -d ~/public_html/IsraelHiking -o ~/temp/%ZIPFILE% >> script.tmp
+echo call rm ~/temp/%ZIPFILE% >> script.tmp
+echo exit >> script.tmp
 
-echo ERRORLEVEL: %ERRORLEVEL%
-
-REM unzip
-@echo %DATE% %TIME%
-"%~dp0\..\..\PuTTY\plink.exe" osm.org.il -l osm unzip -d ~/public_html/Israel\ Hiking -o ~/temp/%ZIPFILE% "&&" rm ~/temp/%ZIPFILE%
-
-@echo %DATE% %TIME%
+rem Execute script
+"%~dp0\..\..\WinSCP\WinSCP.com" /script=script.tmp
 
 IF NOT ERRORLEVEL 1 echo. 2> "%~dp0\Output\%ZIPFILE%"
+
+rem Delete temporary script
+del script.tmp
 
 @echo %DATE% %TIME%
 pause
