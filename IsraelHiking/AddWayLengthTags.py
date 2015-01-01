@@ -58,7 +58,7 @@ App.run_command('change-dir dir="' + App.script_dir +'"')
 App.collect_garbage()
 
 # Create an osm file with forest name info
-sFileName = 'Forests.osm'
+sFileName = App.script_dir +'\Forests.osm'
 osmFile = open(sFileName, 'w')
 iId = 0
 # writing osm header
