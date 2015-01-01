@@ -1208,9 +1208,10 @@ rules
 
 	target : nature reserve boundary
 		define
+			min-zoom : 9
 			line-color : #8DC56C black 20%
 			line-opacity : 0.9
-			line-width : 3
+			line-width : 9:1.5;13:2.5
 			line-style : dashdotdot
 		draw : line
 
@@ -1275,19 +1276,6 @@ rules
 			fill-opacity : 60%
 			line-style : none
 		draw : fill
-		define
-			min-zoom : 13
-			font-size : 12
-			text-color : red
-			font-weight : normal
-		// Hebrew preference for points & areas
-		for : @isMatch(name, "[א-ת]")
-			define
-				text : name
-		else
-			define
-				text : @any([[name:he]], [[name:en]], name)
-		draw : text
 
 	target : boundary*
 		// Avoid maritime borders
