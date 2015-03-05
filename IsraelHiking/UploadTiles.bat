@@ -1,43 +1,59 @@
+SETLOCAL
 SET ZIPFILE="%~nx1"
 
 IF %ZIPFILE%=="" SET ZIPFILE=TileUpdate.zip
-%~d0
-cd %~dp0
+PUSHD %~dp0
 
 @ECHO off
 REM If needed, start Pageant: an SSH authentication agent for WinSCP and Plink
 IF EXIST .\PuTTYOSM.ppk (
-  tasklist | find /i "pageant.exe" > NUL
+  TASKLIST | FIND /i "pageant.exe" > NUL
   IF ERRORLEVEL 1 (
     start .\PuTTYOSM.ppk
-    echo.
-    echo =================================
-    echo Please enter the upload passowrd, 
-    echo and then...
-    pause
-    echo.
+    ECHO.
+    ECHO =================================
+    ECHO Please enter the upload passowrd, 
+    ECHO and then...
+    PAUSE
+    ECHO.
   )
 )
-ECHO on
 
-@echo %DATE% %TIME%
-rem Generate temporary script to upload %ZIPFILE%
-echo option batch abort > script.tmp
-echo option confirm off >> script.tmp
-echo option reconnect 15 >> script.tmp
-echo open Upload-osm.org.il >> script.tmp
-echo put -resume -preservetime -transfer=binary "%~dp0Output\%ZIPFILE%" >> script.tmp
-echo call unzip -d ~/public_html/IsraelHiking -o ~/temp/%ZIPFILE% >> script.tmp
-echo call rm ~/temp/%ZIPFILE% >> script.tmp
-echo exit >> script.tmp
+@ECHO %DATE% %TIME%
+REM Generate temporary script to upload %ZIPFILE%
+ECHO  > %ZIPFILE%.scp	option batch abort
+ECHO >> %ZIPFILE%.scp	option confirm off
+ECHO >> %ZIPFILE%.scp	option reconnect 45
+ECHO >> %ZIPFILE%.scp	open Upload-osm.org.il
+ECHO >> %ZIPFILE%.scp	cd
+ECHO >> %ZIPFILE%.scp	put -resume -preservetime -transfer=binary "%~dp0Output\%ZIPFILE%" temp/
+ECHO >> %ZIPFILE%.scp	call unzip -q -d ~/public_html/IsraelHiking -o ~/temp/%ZIPFILE% ^&^& echo unzip Completed successfully ^|^| echo unzip Failed
+ECHO >> %ZIPFILE%.scp	call rm ~/temp/%ZIPFILE% ^&^& echo Zip file deleted successfully ^|^| echo Zip file deletetion failed
+ECHO >> %ZIPFILE%.scp	exit
 
-rem Execute script
-"%~dp0\..\..\WinSCP\WinSCP.com" /script=script.tmp
+REM Execute script
+@ECHO on
+"%~dp0\..\..\WinSCP\WinSCP.com" /timeout=360 /script=%ZIPFILE%.scp
 
-IF NOT ERRORLEVEL 1 echo. 2> "%~dp0\Output\%ZIPFILE%"
+@REM Save ERRORLEVEL in a variable
+SET ERRORLEVEL=%ERRORLEVEL%
 
-rem Delete temporary script
-del script.tmp
+@REM Delete temporary script
+DEL %ZIPFILE%.scp
+@REM Delete Zip file if upload and extraction was successful
+IF %ERRORLEVEL%==0 echo. 2> "%~dp0\Output\%ZIPFILE%"
 
-@echo %DATE% %TIME%
-pause
+POPD
+
+@ECHO %DATE% %TIME%
+IF DEFINED NOPAUSE (
+  %NOPAUSE%
+  @REM Check real ERRORLEVEL of the above command
+  IF ERRORLEVEL 1 EXIT /B %ERRORLEVEL%
+) ELSE (
+  PAUSE
+)
+
+EXIT /B %ERRORLEVEL%
+
+@REM vim:sw=2:ai

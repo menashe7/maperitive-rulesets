@@ -48,6 +48,17 @@ if not os.path.exists(App.script_dir +'\output\TileUpdate.zip') :
         App.log('App.start_program("' + App.script_dir + '\UploadTiles.bat")')
         App.start_program(App.script_dir + "\UploadTiles.bat")
 
+    App.log("=== Create Trails Overlay tiles ===")
+    App.run_command("run-script file=IsraelHikingOverlay.mscript")
+    if os.path.exists(App.script_dir + "\UploadTiles.bat"):
+        App.log("=== Upload Trails Overlay tiles ===")
+        App.log('App.start_program("' + App.script_dir + '\UploadTiles.bat", "OverlayTiles.zip"])')
+        App.start_program(App.script_dir + "\UploadTiles.bat", ["OverlayTiles.zip"])
+    if os.path.exists(ProgramFiles + "\Mobile Atlas Creator\All IsraelHikingOverlay Maps.bat"):
+        App.log("=== Launch creation of All IsraelHikingOverlay Maps ===")
+        App.log('App.start_program(ProgramFiles + "\Mobile Atlas Creator\All IsraelHikingOverlay Maps.bat", [])')
+        App.start_program(ProgramFiles + "\Mobile Atlas Creator\All IsraelHikingOverlay Maps.bat", [])
+
     App.log('==============================================================================')  
     App.log('=== Restarting Maperitive and run the script again to create zoom level 16 ===')  
     App.log('==============================================================================')  
@@ -71,17 +82,6 @@ if os.path.exists(App.script_dir +'\output\LastModified.zip') and os.path.exists
         App.log('App.start_program("' + App.script_dir + '\UploadTiles.bat", "LastModified.zip"])')
         App.start_program(App.script_dir + "\UploadTiles.bat", ["LastModified.zip"])
 
-    App.log("=== Create Trails Overlay tiles ===")
-    App.run_command("run-script file=IsraelHikingOverlay.mscript")
-    if os.path.exists(App.script_dir + "\UploadTiles.bat"):
-        App.log("=== Upload Trails Overlay tiles ===")
-        App.log('App.start_program("' + App.script_dir + '\UploadTiles.bat", "OverlayTiles.zip"])')
-        App.start_program(App.script_dir + "\UploadTiles.bat", ["OverlayTiles.zip"])
-    if os.path.exists(ProgramFiles + "\Mobile Atlas Creator\All IsraelHikingOverlay Maps.bat"):
-        App.log("=== Launch creation of All IsraelHikingOverlay Maps ===")
-        App.log('App.start_program(ProgramFiles + "\Mobile Atlas Creator\All IsraelHikingOverlay Maps.bat", [])')
-        App.start_program(ProgramFiles + "\Mobile Atlas Creator\All IsraelHikingOverlay Maps.bat", [])
-
 App.collect_garbage()
 
-# vim: set shiftwidth=4 expandtab
+# vim: shiftwidth=4 expandtab
