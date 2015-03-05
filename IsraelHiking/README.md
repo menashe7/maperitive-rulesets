@@ -41,12 +41,13 @@ Maperitive runs on Windows, Linux and MAC.
 2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/maperitive-rulesets/tree/master/IsraelHiking) (this site if you read this file in github).
     * click on the Files tab.
     * click on the Zip with the cloud and arrow to download all the files.
-3. The zip file will contain some unnecessary folders and files, the only folder needed from this zip is called IsraelHiking, place it inside your Maperitive installation folder.
-    * you should now have a folder ...\<Maperitive Install folder\>\IsraelHiking\
+3. The zip file will contain some unnecessary folders and files, the only folder needed from this zip is called IsraelHiking, copy it to the Maperitive installation folder.
+    * you should now have a folder {Maperitive Install folder}\IsraelHiking\
 4. Download [OSM Data for the region](http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf) and place it in the above folder.
 5. Open Maperitive program, click _File &rarr; Run Script_ ... and choose _IsraelHiking\IsraelHiking.mscript_
+6. Click _Tools &rarr; Generate Tiles_
 
-This should generate 256x256 png tile files inside IsraelHiking\Site\Tiles directory and should take long (about 3 hours or more, I prefer to do it overnight, but you need to make sure you don't get out of memory).
+This should generate 256x256 png tile files inside the IsraelHiking\Site\Tiles directory and would take a long time (about 3 hours or more, I prefer to do it overnight, but you need to make sure you don't get out of memory).
 
 ##MOBAC and Oruxmaps
 
