@@ -22,10 +22,7 @@ Ready-to-use maps are available for:
     * Scroll down
     * Select "add new type"
     * Define a name for it (i.e Israel Hiking)
-    * Enter the this URL:
-```
-    http://osm.org.il/IsraelHiking/Tiles/<zoom>/<x>/<y>.png
-```
+    * Enter the this URL: `http://osm.org.il/IsraelHiking/Tiles/<zoom>/<x>/<y>.png`
     * Select "Save"
 
 
