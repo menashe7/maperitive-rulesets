@@ -4,13 +4,11 @@
 *.osm.pbf
 
 #############
-## Vi/Vim
+## Temporary files
 #############
 *~
 *.swp
-
-#############
-## Temporary files
-#############
 *.part
-*.ffs_db
+*.ffs_*
+*.scp
+*.ppk
