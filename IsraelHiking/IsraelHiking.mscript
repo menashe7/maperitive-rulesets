@@ -81,9 +81,9 @@ load-source IsraelBelowKinneretLevel.contours
 // ===============================================
 load-source Legend.osm
 
-// =======================================================================
-// == Load the relief file created using "Israel Hiking Setup.mscript" ===
-// =======================================================================
+// =====================================================================
+// == Load the relief file created using "IsraelHikingSetup.mscript" ===
+// =====================================================================
 load-image file=relief_Hiking_Igor.png background=false
 
 // ========================================
