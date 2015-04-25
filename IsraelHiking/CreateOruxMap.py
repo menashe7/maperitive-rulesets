@@ -9,7 +9,7 @@ ProgramFiles = os.path.dirname(os.path.dirname(App.script_dir))
 if not os.path.exists(App.script_dir +'\output\TileUpdate.zip') and not os.path.exists(App.script_dir +'\output\TileUpdate16.zip'):
     App.log("=== Update israel-and-palestine-latest.osm.pbf ===")
     # wget for Windows: http://gnuwin32.sourceforge.net/packages/wget.htm
-    App.run_program(ProgramFiles + '\wget\\bin\wget.exe', 1200,
+    App.run_program(ProgramFiles + '\wget\wget.exe', 1200,
                     ["--timestamping",
                      "--no-directories", "--no-verbose",
                      '--directory-prefix="' + App.script_dir +'"',
